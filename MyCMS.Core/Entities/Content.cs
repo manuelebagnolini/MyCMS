@@ -1,15 +1,14 @@
-﻿namespace MyCMS.Core.Models
+﻿namespace MyCMS.Core.Entities
 {
-    public class Content
+    public class Content : BaseEntity
     {
-        public int ContentID { get; set; }
         public string Title { get; set; }
-        public string? Body { get; set; }
-        public string? Url { get; set; }
-        public int ContentTypeID { get; set; }
-        public int CreateUserID { get; set; }
+        public string Body { get; set; }
+        public string Url { get; set; }
+        public int ContentTypeId { get; set; }
+        public int CreateUserId { get; set; }
         public DateTime CreateDatetime { get; set; }
-        public int ModifyUserID { get; set; }
+        public int ModifyUserId { get; set; }
         public DateTime ModifyDatetime { get; set; }
         
         public ContentType ContentType { get; set; }

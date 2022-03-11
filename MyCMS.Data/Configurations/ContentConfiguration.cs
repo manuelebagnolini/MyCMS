@@ -1,46 +1,37 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyCMS.Core.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using MyCMS.Core.Entities;
 
-namespace MyCMS.Data.Mappers
+namespace MyCMS.Data.Configurations
 {
-    public class ContentMapper : IMapper
+    public class ContentConfiguration : IEntityTypeConfiguration<Content>
     {
-        public void Map(ModelBuilder modelBuilder)
+        public void Configure(EntityTypeBuilder<Content> builder)
         {
-            modelBuilder
-                .Entity<Content>()
-                .HasKey(c => c.ContentID);
-
-            modelBuilder
-                .Entity<Content>()
+            builder
                 .Property(c => c.Title)
                 .IsRequired();
 
-            modelBuilder
-                .Entity<Content>()
+            builder
                 .HasOne(c => c.ContentType)
                 .WithMany()
                 .IsRequired();
 
-            modelBuilder
-                .Entity<Content>()
+            builder
                 .HasOne(c => c.CreateUser)
                 .WithMany()
                 .IsRequired();
 
-            modelBuilder
-                .Entity<Content>()
+            builder
                 .Property(c => c.CreateDatetime)
                 .IsRequired();
 
-            modelBuilder
-                .Entity<Content>()
+            builder
                 .HasOne(c => c.ModifyUser)
                 .WithMany()
                 .IsRequired();
 
-            modelBuilder
-                .Entity<Content>()
+            builder
                 .Property(c => c.ModifyDatetime)
                 .IsRequired();
         }

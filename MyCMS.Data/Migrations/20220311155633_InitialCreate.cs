@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyCMS.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace MyCMS.Data.Migrations
                 name: "Attributes",
                 columns: table => new
                 {
-                    AttributeID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
@@ -21,42 +21,42 @@ namespace MyCMS.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Attributes", x => x.AttributeID);
+                    table.PrimaryKey("PK_Attributes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "ContentRelationTypes",
                 columns: table => new
                 {
-                    ContentRelationTypeID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContentRelationTypes", x => x.ContentRelationTypeID);
+                    table.PrimaryKey("PK_ContentRelationTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "ContentTypes",
                 columns: table => new
                 {
-                    ContentTypeID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContentTypes", x => x.ContentTypeID);
+                    table.PrimaryKey("PK_ContentTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
-                    UserID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Username = table.Column<string>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
@@ -65,64 +65,64 @@ namespace MyCMS.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserID);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "AttributeOptions",
                 columns: table => new
                 {
-                    AttributeOptionID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    AttributeID = table.Column<int>(type: "INTEGER", nullable: false),
+                    AttributeId = table.Column<int>(type: "INTEGER", nullable: false),
                     Value = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AttributeOptions", x => x.AttributeOptionID);
+                    table.PrimaryKey("PK_AttributeOptions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AttributeOptions_Attributes_AttributeID",
-                        column: x => x.AttributeID,
+                        name: "FK_AttributeOptions_Attributes_AttributeId",
+                        column: x => x.AttributeId,
                         principalTable: "Attributes",
-                        principalColumn: "AttributeID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Content",
+                name: "Contents",
                 columns: table => new
                 {
-                    ContentID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     Body = table.Column<string>(type: "TEXT", nullable: true),
                     Url = table.Column<string>(type: "TEXT", nullable: true),
-                    ContentTypeID = table.Column<int>(type: "INTEGER", nullable: false),
-                    CreateUserID = table.Column<int>(type: "INTEGER", nullable: false),
+                    ContentTypeId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CreateUserId = table.Column<int>(type: "INTEGER", nullable: false),
                     CreateDatetime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ModifyUserID = table.Column<int>(type: "INTEGER", nullable: false),
+                    ModifyUserId = table.Column<int>(type: "INTEGER", nullable: false),
                     ModifyDatetime = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Content", x => x.ContentID);
+                    table.PrimaryKey("PK_Contents", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Content_ContentTypes_ContentTypeID",
-                        column: x => x.ContentTypeID,
+                        name: "FK_Contents_ContentTypes_ContentTypeId",
+                        column: x => x.ContentTypeId,
                         principalTable: "ContentTypes",
-                        principalColumn: "ContentTypeID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Content_User_CreateUserID",
-                        column: x => x.CreateUserID,
-                        principalTable: "User",
-                        principalColumn: "UserID",
+                        name: "FK_Contents_Users_CreateUserId",
+                        column: x => x.CreateUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Content_User_ModifyUserID",
-                        column: x => x.ModifyUserID,
-                        principalTable: "User",
-                        principalColumn: "UserID",
+                        name: "FK_Contents_Users_ModifyUserId",
+                        column: x => x.ModifyUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -130,34 +130,34 @@ namespace MyCMS.Data.Migrations
                 name: "ContentAttributes",
                 columns: table => new
                 {
-                    ContentAttributeID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ContentID = table.Column<int>(type: "INTEGER", nullable: false),
-                    AttributeID = table.Column<int>(type: "INTEGER", nullable: false),
+                    ContentId = table.Column<int>(type: "INTEGER", nullable: false),
+                    AttributeId = table.Column<int>(type: "INTEGER", nullable: false),
                     ValueText = table.Column<string>(type: "TEXT", nullable: true),
                     ValueNumber = table.Column<int>(type: "INTEGER", nullable: true),
                     ValueDate = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    AttributeOptionID = table.Column<int>(type: "INTEGER", nullable: true)
+                    AttributeOptionId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContentAttributes", x => x.ContentAttributeID);
+                    table.PrimaryKey("PK_ContentAttributes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ContentAttributes_AttributeOptions_AttributeOptionID",
-                        column: x => x.AttributeOptionID,
+                        name: "FK_ContentAttributes_AttributeOptions_AttributeOptionId",
+                        column: x => x.AttributeOptionId,
                         principalTable: "AttributeOptions",
-                        principalColumn: "AttributeOptionID");
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_ContentAttributes_Attributes_AttributeID",
-                        column: x => x.AttributeID,
+                        name: "FK_ContentAttributes_Attributes_AttributeId",
+                        column: x => x.AttributeId,
                         principalTable: "Attributes",
-                        principalColumn: "AttributeID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ContentAttributes_Content_ContentID",
-                        column: x => x.ContentID,
-                        principalTable: "Content",
-                        principalColumn: "ContentID",
+                        name: "FK_ContentAttributes_Contents_ContentId",
+                        column: x => x.ContentId,
+                        principalTable: "Contents",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -165,39 +165,40 @@ namespace MyCMS.Data.Migrations
                 name: "ContentRelations",
                 columns: table => new
                 {
-                    ContentRelationID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ContainerContentID = table.Column<int>(type: "INTEGER", nullable: false),
-                    ReferredContentID = table.Column<int>(type: "INTEGER", nullable: false),
-                    ContentRelationTypeID = table.Column<int>(type: "INTEGER", nullable: false)
+                    ContentRelationId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ContainerContentId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ReferredContentId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ContentRelationTypeId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContentRelations", x => x.ContentRelationID);
+                    table.PrimaryKey("PK_ContentRelations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ContentRelations_Content_ContainerContentID",
-                        column: x => x.ContainerContentID,
-                        principalTable: "Content",
-                        principalColumn: "ContentID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ContentRelations_Content_ReferredContentID",
-                        column: x => x.ReferredContentID,
-                        principalTable: "Content",
-                        principalColumn: "ContentID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ContentRelations_ContentRelationTypes_ContentRelationTypeID",
-                        column: x => x.ContentRelationTypeID,
+                        name: "FK_ContentRelations_ContentRelationTypes_ContentRelationTypeId",
+                        column: x => x.ContentRelationTypeId,
                         principalTable: "ContentRelationTypes",
-                        principalColumn: "ContentRelationTypeID",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ContentRelations_Contents_ContainerContentId",
+                        column: x => x.ContainerContentId,
+                        principalTable: "Contents",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ContentRelations_Contents_ReferredContentId",
+                        column: x => x.ReferredContentId,
+                        principalTable: "Contents",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AttributeOptions_AttributeID",
+                name: "IX_AttributeOptions_AttributeId",
                 table: "AttributeOptions",
-                column: "AttributeID");
+                column: "AttributeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Attributes_Name",
@@ -206,51 +207,51 @@ namespace MyCMS.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Content_ContentTypeID",
-                table: "Content",
-                column: "ContentTypeID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Content_CreateUserID",
-                table: "Content",
-                column: "CreateUserID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Content_ModifyUserID",
-                table: "Content",
-                column: "ModifyUserID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ContentAttributes_AttributeID",
+                name: "IX_ContentAttributes_AttributeId",
                 table: "ContentAttributes",
-                column: "AttributeID");
+                column: "AttributeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ContentAttributes_AttributeOptionID",
+                name: "IX_ContentAttributes_AttributeOptionId",
                 table: "ContentAttributes",
-                column: "AttributeOptionID");
+                column: "AttributeOptionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ContentAttributes_ContentID_AttributeID",
+                name: "IX_ContentAttributes_ContentId_AttributeId",
                 table: "ContentAttributes",
-                columns: new[] { "ContentID", "AttributeID" },
+                columns: new[] { "ContentId", "AttributeId" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ContentRelations_ContainerContentID_ReferredContentID_ContentRelationTypeID",
+                name: "IX_ContentRelations_ContainerContentId_ReferredContentId_ContentRelationTypeId",
                 table: "ContentRelations",
-                columns: new[] { "ContainerContentID", "ReferredContentID", "ContentRelationTypeID" },
+                columns: new[] { "ContainerContentId", "ReferredContentId", "ContentRelationTypeId" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ContentRelations_ContentRelationTypeID",
+                name: "IX_ContentRelations_ContentRelationTypeId",
                 table: "ContentRelations",
-                column: "ContentRelationTypeID");
+                column: "ContentRelationTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ContentRelations_ReferredContentID",
+                name: "IX_ContentRelations_ReferredContentId",
                 table: "ContentRelations",
-                column: "ReferredContentID");
+                column: "ReferredContentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Contents_ContentTypeId",
+                table: "Contents",
+                column: "ContentTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Contents_CreateUserId",
+                table: "Contents",
+                column: "CreateUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Contents_ModifyUserId",
+                table: "Contents",
+                column: "ModifyUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -265,10 +266,10 @@ namespace MyCMS.Data.Migrations
                 name: "AttributeOptions");
 
             migrationBuilder.DropTable(
-                name: "Content");
+                name: "ContentRelationTypes");
 
             migrationBuilder.DropTable(
-                name: "ContentRelationTypes");
+                name: "Contents");
 
             migrationBuilder.DropTable(
                 name: "Attributes");
@@ -277,7 +278,7 @@ namespace MyCMS.Data.Migrations
                 name: "ContentTypes");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Users");
         }
     }
 }

@@ -1,8 +1,7 @@
-﻿namespace MyCMS.Core.Models
+﻿namespace MyCMS.Core.Entities
 {
-    public class User
+    public class User : BaseEntity
     {
-        public int UserID { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

@@ -25,7 +25,7 @@ namespace MyCMS.Data
             var dataProviderManager = new DataProviderManager();
             var dataProvider = dataProviderManager.GetDataProvider(dataProviderType);
 
-            return new MyCMSContext(builder.Options, dataProvider);
+            return new MyCMSContext(builder.Options, dataProvider, configuration);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace MyCMS.Data.DataProviders
+﻿using MyCMS.Data.Intefaces;
+
+namespace MyCMS.Data.DataProviders
 {
     public class DataProviderManager : IDataProviderManager
     {

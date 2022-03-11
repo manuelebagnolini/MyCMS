@@ -11,17 +11,17 @@ using MyCMS.Data;
 namespace MyCMS.Data.Migrations
 {
     [DbContext(typeof(MyCMSContext))]
-    [Migration("20220310233642_RenamingTables")]
-    partial class RenamingTables
+    [Migration("20220311155633_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
 
-            modelBuilder.Entity("MyCMS.Core.Models.Attribute", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.Attribute", b =>
                 {
-                    b.Property<int>("AttributeID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -35,7 +35,7 @@ namespace MyCMS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AttributeID");
+                    b.HasKey("Id");
 
                     b.HasIndex("Name")
                         .IsUnique();
@@ -43,48 +43,48 @@ namespace MyCMS.Data.Migrations
                     b.ToTable("Attributes");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.AttributeOption", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.AttributeOption", b =>
                 {
-                    b.Property<int>("AttributeOptionID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AttributeID")
+                    b.Property<int>("AttributeId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Value")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AttributeOptionID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("AttributeID");
+                    b.HasIndex("AttributeId");
 
                     b.ToTable("AttributeOptions");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.Content", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.Content", b =>
                 {
-                    b.Property<int>("ContentID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Body")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ContentTypeID")
+                    b.Property<int>("ContentTypeId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CreateDatetime")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("CreateUserID")
+                    b.Property<int>("CreateUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("ModifyDatetime")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ModifyUserID")
+                    b.Property<int>("ModifyUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -94,30 +94,30 @@ namespace MyCMS.Data.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ContentID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("ContentTypeID");
+                    b.HasIndex("ContentTypeId");
 
-                    b.HasIndex("CreateUserID");
+                    b.HasIndex("CreateUserId");
 
-                    b.HasIndex("ModifyUserID");
+                    b.HasIndex("ModifyUserId");
 
                     b.ToTable("Contents");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.ContentAttribute", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.ContentAttribute", b =>
                 {
-                    b.Property<int>("ContentAttributeID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AttributeID")
+                    b.Property<int>("AttributeId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AttributeOptionID")
+                    b.Property<int?>("AttributeOptionId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ContentID")
+                    b.Property<int>("ContentId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("ValueDate")
@@ -129,48 +129,51 @@ namespace MyCMS.Data.Migrations
                     b.Property<string>("ValueText")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ContentAttributeID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("AttributeID");
+                    b.HasIndex("AttributeId");
 
-                    b.HasIndex("AttributeOptionID");
+                    b.HasIndex("AttributeOptionId");
 
-                    b.HasIndex("ContentID", "AttributeID")
+                    b.HasIndex("ContentId", "AttributeId")
                         .IsUnique();
 
                     b.ToTable("ContentAttributes");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.ContentRelation", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.ContentRelation", b =>
                 {
-                    b.Property<int>("ContentRelationID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ContainerContentID")
+                    b.Property<int>("ContainerContentId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ContentRelationTypeID")
+                    b.Property<int>("ContentRelationId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ReferredContentID")
+                    b.Property<int>("ContentRelationTypeId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ContentRelationID");
+                    b.Property<int>("ReferredContentId")
+                        .HasColumnType("INTEGER");
 
-                    b.HasIndex("ContentRelationTypeID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("ReferredContentID");
+                    b.HasIndex("ContentRelationTypeId");
 
-                    b.HasIndex("ContainerContentID", "ReferredContentID", "ContentRelationTypeID")
+                    b.HasIndex("ReferredContentId");
+
+                    b.HasIndex("ContainerContentId", "ReferredContentId", "ContentRelationTypeId")
                         .IsUnique();
 
                     b.ToTable("ContentRelations");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.ContentRelationType", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.ContentRelationType", b =>
                 {
-                    b.Property<int>("ContentRelationTypeID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -181,14 +184,14 @@ namespace MyCMS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ContentRelationTypeID");
+                    b.HasKey("Id");
 
                     b.ToTable("ContentRelationTypes");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.ContentType", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.ContentType", b =>
                 {
-                    b.Property<int>("ContentTypeID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -199,14 +202,14 @@ namespace MyCMS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ContentTypeID");
+                    b.HasKey("Id");
 
                     b.ToTable("ContentTypes");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.User", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.User", b =>
                 {
-                    b.Property<int>("UserID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -226,39 +229,39 @@ namespace MyCMS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("UserID");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.AttributeOption", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.AttributeOption", b =>
                 {
-                    b.HasOne("MyCMS.Core.Models.Attribute", "Attribute")
+                    b.HasOne("MyCMS.Core.Entities.Attribute", "Attribute")
                         .WithMany("Options")
-                        .HasForeignKey("AttributeID")
+                        .HasForeignKey("AttributeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Attribute");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.Content", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.Content", b =>
                 {
-                    b.HasOne("MyCMS.Core.Models.ContentType", "ContentType")
+                    b.HasOne("MyCMS.Core.Entities.ContentType", "ContentType")
                         .WithMany()
-                        .HasForeignKey("ContentTypeID")
+                        .HasForeignKey("ContentTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyCMS.Core.Models.User", "CreateUser")
+                    b.HasOne("MyCMS.Core.Entities.User", "CreateUser")
                         .WithMany()
-                        .HasForeignKey("CreateUserID")
+                        .HasForeignKey("CreateUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyCMS.Core.Models.User", "ModifyUser")
+                    b.HasOne("MyCMS.Core.Entities.User", "ModifyUser")
                         .WithMany()
-                        .HasForeignKey("ModifyUserID")
+                        .HasForeignKey("ModifyUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -269,21 +272,21 @@ namespace MyCMS.Data.Migrations
                     b.Navigation("ModifyUser");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.ContentAttribute", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.ContentAttribute", b =>
                 {
-                    b.HasOne("MyCMS.Core.Models.Attribute", "Attribute")
+                    b.HasOne("MyCMS.Core.Entities.Attribute", "Attribute")
                         .WithMany()
-                        .HasForeignKey("AttributeID")
+                        .HasForeignKey("AttributeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyCMS.Core.Models.AttributeOption", "AttributeOption")
+                    b.HasOne("MyCMS.Core.Entities.AttributeOption", "AttributeOption")
                         .WithMany()
-                        .HasForeignKey("AttributeOptionID");
+                        .HasForeignKey("AttributeOptionId");
 
-                    b.HasOne("MyCMS.Core.Models.Content", "Content")
+                    b.HasOne("MyCMS.Core.Entities.Content", "Content")
                         .WithMany("Attributes")
-                        .HasForeignKey("ContentID")
+                        .HasForeignKey("ContentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -294,23 +297,23 @@ namespace MyCMS.Data.Migrations
                     b.Navigation("Content");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.ContentRelation", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.ContentRelation", b =>
                 {
-                    b.HasOne("MyCMS.Core.Models.Content", "ContainerContent")
+                    b.HasOne("MyCMS.Core.Entities.Content", "ContainerContent")
                         .WithMany("Contents")
-                        .HasForeignKey("ContainerContentID")
+                        .HasForeignKey("ContainerContentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyCMS.Core.Models.ContentRelationType", "ContentRelationType")
+                    b.HasOne("MyCMS.Core.Entities.ContentRelationType", "ContentRelationType")
                         .WithMany()
-                        .HasForeignKey("ContentRelationTypeID")
+                        .HasForeignKey("ContentRelationTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyCMS.Core.Models.Content", "ReferredContent")
+                    b.HasOne("MyCMS.Core.Entities.Content", "ReferredContent")
                         .WithMany("ReferencedBy")
-                        .HasForeignKey("ReferredContentID")
+                        .HasForeignKey("ReferredContentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -321,12 +324,12 @@ namespace MyCMS.Data.Migrations
                     b.Navigation("ReferredContent");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.Attribute", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.Attribute", b =>
                 {
                     b.Navigation("Options");
                 });
 
-            modelBuilder.Entity("MyCMS.Core.Models.Content", b =>
+            modelBuilder.Entity("MyCMS.Core.Entities.Content", b =>
                 {
                     b.Navigation("Attributes");
 

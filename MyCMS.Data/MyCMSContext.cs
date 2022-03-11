@@ -1,25 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyCMS.Core.Models;
-using MyCMS.Data.DataProviders;
-using MyCMS.Data.Mappers;
+using Microsoft.Extensions.Configuration;
+using MyCMS.Core.Entities;
+using MyCMS.Data.Configurations;
+using MyCMS.Data.Intefaces;
 
 namespace MyCMS.Data
 {
     public class MyCMSContext : DbContext
     {
         IDataProvider _dataProvider;
+        IConfiguration _configuration;
 
-        public MyCMSContext(DbContextOptions<MyCMSContext> options, IDataProvider dataProvider) : base(options)
+        public MyCMSContext(DbContextOptions<MyCMSContext> options, IDataProvider dataProvider, IConfiguration configuration) : base(options)
         {
             _dataProvider = dataProvider;
+            _configuration = configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            _dataProvider.ConfigureContext(optionsBuilder);
+            _dataProvider.ConfigureContext(optionsBuilder, _configuration);
         }
 
-        public DbSet<Core.Models.Attribute> Attributes { get; set; }
+        public DbSet<Core.Entities.Attribute> Attributes { get; set; }
         public DbSet<AttributeOption> AttributeOptions { get; set; }
         public DbSet<Content> Contents { get; set; }
         public DbSet<ContentAttribute> ContentAttributes { get; set; }
@@ -30,14 +33,14 @@ namespace MyCMS.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            new AttributeMapper().Map(modelBuilder);
-            new AttributeOptionMapper().Map(modelBuilder);
-            new ContentMapper().Map(modelBuilder);
-            new ContentAttributeMapper().Map(modelBuilder);
-            new ContentRelationMapper().Map(modelBuilder);
-            new ContentRelationTypeMapper().Map(modelBuilder);
-            new ContentTypeMapper().Map(modelBuilder);
-            new UserMapper().Map(modelBuilder);
+            new AttributeConfiguration().Configure(modelBuilder.Entity<Core.Entities.Attribute>());
+            new AttributeOptionConfiguration().Configure(modelBuilder.Entity<AttributeOption>());
+            new ContentConfiguration().Configure(modelBuilder.Entity<Content>());
+            new ContentAttributeConfiguration().Configure(modelBuilder.Entity<ContentAttribute>());
+            new ContentRelationConfiguration().Configure(modelBuilder.Entity<ContentRelation>());
+            new ContentRelationTypeConfiguration().Configure(modelBuilder.Entity<ContentRelationType>());
+            new ContentTypeConfiguration().Configure(modelBuilder.Entity<ContentType>());
+            new UserConfiguration().Configure(modelBuilder.Entity<User>());
         }
     }
 }
