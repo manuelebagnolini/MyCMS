@@ -14,39 +14,39 @@ namespace MyCMS.Data
             _context = context;
         }
 
-        public IQueryable<TEntity> Table { get { return _context.Set<TEntity>(); } }
+        public IQueryable<TEntity> Query { get { return _context.Set<TEntity>(); } }
 
-        public async Task<TEntity> GetById(int id)
+        public async Task<TEntity> GetByIdAsync(int id)
         {
             return await _context.Set<TEntity>().FindAsync(id);
         }
 
-        public async Task<IEnumerable<TEntity>> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<IEnumerable<TEntity>> GetWhere(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> GetWhereAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await _context.Set<TEntity>().Where(predicate).ToListAsync();
         }
 
-        public async Task<int> CountAll()
+        public async Task<int> CountAllAsync()
         {
             return await _context.Set<TEntity>().CountAsync();
         }
 
-        public async Task<int> CountWhere(Expression<Func<TEntity, bool>> predicate)
+        public async Task<int> CountWhereAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await _context.Set<TEntity>().Where(predicate).CountAsync();
         }
 
-        public async Task Add(TEntity entity)
+        public async Task AddAsync(TEntity entity)
         {
             await _context.Set<TEntity>().AddAsync(entity);
         }
 
-        public async Task AddRange(IEnumerable<TEntity> entities)
+        public async Task AddRangeAsync(IEnumerable<TEntity> entities)
         {
             await _context.Set<TEntity>().AddRangeAsync(entities);
         }
@@ -61,7 +61,7 @@ namespace MyCMS.Data
             _context.Set<TEntity>().RemoveRange(entities);
         }
 
-        public async Task SaveChanges()
+        public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();
         }

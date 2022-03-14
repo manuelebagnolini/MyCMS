@@ -18,7 +18,7 @@ namespace MyCMS.Web.API.Queries
         [UseSorting]
         public IQueryable<Content> GetContent([Service] IEntityRepository<Content> contentRepository)
         {
-            return contentRepository.Table;
+            return contentRepository.Query;
         }
     }
 }

@@ -25,14 +25,16 @@ namespace MyCMS.Data.TestData
             _contents = contents;
         }
 
-        public void Import()
+        public async Task ImportAsync()
         {
-            _attributes.RemoveRange(_attributes.Table);
-            _contentTypes.RemoveRange(_contentTypes.Table);
-            _contentRelationTypes.RemoveRange(_contentRelationTypes.Table);
-            _users.RemoveRange(_users.Table);
-            _contents.RemoveRange(_contents.Table);
-            _contents.SaveChanges();
+            _attributes.RemoveRange(_attributes.Query);
+            _contentTypes.RemoveRange(_contentTypes.Query);
+            _contentRelationTypes.RemoveRange(_contentRelationTypes.Query);
+            _users.RemoveRange(_users.Query);
+            _contents.RemoveRange(_contents.Query);
+
+            //One SaveChanges for all entities
+            await _contents.SaveChangesAsync();
 
             var attributes = new List<Core.Entities.Attribute>
             {
@@ -246,12 +248,14 @@ namespace MyCMS.Data.TestData
             });
 
 
-            _attributes.AddRange(attributes);
-            _contentTypes.AddRange(contentTypes);
-            _contentRelationTypes.AddRange(contentRelationTypes);
-            _users.AddRange(users);
-            _contents.AddRange(contents);
-            _contents.SaveChanges();
+            await _attributes.AddRangeAsync(attributes);
+            await _contentTypes.AddRangeAsync(contentTypes);
+            await _contentRelationTypes.AddRangeAsync(contentRelationTypes);
+            await _users.AddRangeAsync(users);
+            await _contents.AddRangeAsync(contents);
+
+            //One SaveChanges for all entities
+            await _contents.SaveChangesAsync();
         }
     }
 }

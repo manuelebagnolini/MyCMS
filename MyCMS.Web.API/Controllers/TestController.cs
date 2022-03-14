@@ -26,14 +26,14 @@ namespace MyCMS.Web.API
         /// Empty current database and load test data.
         /// </summary>
         [HttpPost]
-        public IActionResult ImportTestData()
+        public async Task<IActionResult> ImportTestData()
         {
             string status = "OK";
             string message = null;
 
             try
             {
-                _testImporter.Import();
+                await _testImporter.ImportAsync();
             }
             catch (Exception ex)
             {
