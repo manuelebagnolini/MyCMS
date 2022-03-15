@@ -25,7 +25,7 @@ namespace MyCMS.Data.TestData
             _contents = contents;
         }
 
-        public async Task ImportAsync()
+        public async Task ImportAsync(int numArticles)
         {
             _attributes.RemoveRange(_attributes.Query);
             _contentTypes.RemoveRange(_contentTypes.Query);
@@ -141,11 +141,16 @@ namespace MyCMS.Data.TestData
                 }
             };
 
-            var contents = new List<Content>
+            var articles = new List<Content>();
+            var images = new List<Content>();
+            var comments = new List<Content>();
+            var pages = new List<Content>();
+
+            foreach (int num in Enumerable.Range(1, numArticles))
             {
-                new Content
+                articles.Add(new Content
                 {
-                    Title = "This is just a test article",
+                    Title = "This is just a test article " + num,
                     Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     Url = null,
                     ContentType = contentTypes[0],
@@ -176,66 +181,66 @@ namespace MyCMS.Data.TestData
                             ValueText = "This is just a simple note"
                         }
                     },
-                }
-            };
+                });
 
-            contents.Add(new Content
-            {
-                Title = "This is just a test image",
-                Body = null,
-                Url = "https://lo2y.com/wp-content/uploads/2016/02/hello-world-510x219.png",
-                ContentType = contentTypes[1],
-                CreateUser = users[1],
-                CreateDatetime = DateTime.Now,
-                ModifyUser = users[1],
-                ModifyDatetime = DateTime.Now,
-                Attributes = new List<ContentAttribute>
+                images.Add(new Content
                 {
-                    new ContentAttribute
+                    Title = "This is just a test image " + num,
+                    Body = null,
+                    Url = "https://lo2y.com/wp-content/uploads/2016/02/hello-world-510x219.png",
+                    ContentType = contentTypes[1],
+                    CreateUser = users[1],
+                    CreateDatetime = DateTime.Now,
+                    ModifyUser = users[1],
+                    ModifyDatetime = DateTime.Now,
+                    Attributes = new List<ContentAttribute>
                     {
-                        Attribute = attributes[3],
-                        ValueText = "Added image to say hello"
-                    }
-                },
-                ReferencedBy = new List<ContentRelation>
-                {
-                    new ContentRelation
+                        new ContentAttribute
+                        {
+                            Attribute = attributes[3],
+                            ValueText = "Added image to say hello"
+                        }
+                    },
+                        ReferencedBy = new List<ContentRelation>
                     {
-                        ContainerContent = contents[0],
-                        ContentRelationType = contentRelationTypes[0]
+                        new ContentRelation
+                        {
+                            ContainerContent = articles[num-1],
+                            ContentRelationType = contentRelationTypes[0]
+                        }
                     }
-                }
-            });
+                });
 
-            contents.Add(new Content
-            {
-                Title = "This is just a test comment",
-                Body = "I don't like this Lorem ipsum thing...",
-                Url = null,
-                ContentType = contentTypes[2],
-                CreateUser = users[2],
-                CreateDatetime = DateTime.Now,
-                ModifyUser = users[2],
-                ModifyDatetime = DateTime.Now,
-                Attributes = new List<ContentAttribute>
+                comments.Add(new Content
                 {
-                    new ContentAttribute
+                    Title = "This is just a test comment " + num,
+                    Body = "I don't like this Lorem ipsum thing...",
+                    Url = null,
+                    ContentType = contentTypes[2],
+                    CreateUser = users[2],
+                    CreateDatetime = DateTime.Now,
+                    ModifyUser = users[2],
+                    ModifyDatetime = DateTime.Now,
+                    Attributes = new List<ContentAttribute>
                     {
-                        Attribute = attributes[0],
-                        AttributeOption = attributes[0].Options.Where(x => x.Value == "Red").Single(),
-                    }
-                },
-                ReferencedBy = new List<ContentRelation>
-                {
-                    new ContentRelation
+                        new ContentAttribute
+                        {
+                            Attribute = attributes[0],
+                            AttributeOption = attributes[0].Options.Where(x => x.Value == "Red").Single(),
+                        }
+                    },
+                        ReferencedBy = new List<ContentRelation>
                     {
-                        ContainerContent = contents[0],
-                        ContentRelationType = contentRelationTypes[1]
+                        new ContentRelation
+                        {
+                            ContainerContent = articles[num-1],
+                            ContentRelationType = contentRelationTypes[1]
+                        }
                     }
-                }
-            });
+                });
+            }
 
-            contents.Add(new Content
+            pages.Add(new Content
             {
                 Title = "This is just a test page",
                 Body = "<p>Under construction</p>",
@@ -247,12 +252,14 @@ namespace MyCMS.Data.TestData
                 ModifyDatetime = DateTime.Now
             });
 
-
             await _attributes.AddRangeAsync(attributes);
             await _contentTypes.AddRangeAsync(contentTypes);
             await _contentRelationTypes.AddRangeAsync(contentRelationTypes);
             await _users.AddRangeAsync(users);
-            await _contents.AddRangeAsync(contents);
+            await _contents.AddRangeAsync(articles);
+            await _contents.AddRangeAsync(images);
+            await _contents.AddRangeAsync(comments);
+            await _contents.AddRangeAsync(pages);
 
             //One SaveChanges for all entities
             await _contents.SaveChangesAsync();

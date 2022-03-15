@@ -25,15 +25,17 @@ namespace MyCMS.Web.API
         /// <summary>
         /// Empty current database and load test data.
         /// </summary>
+        /// <param name="numArticles"></param>
+        /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> ImportTestData()
+        public async Task<IActionResult> ImportTestData(int numArticles)
         {
             string status = "OK";
             string message = null;
 
             try
             {
-                await _testImporter.ImportAsync();
+                await _testImporter.ImportAsync(numArticles);
             }
             catch (Exception ex)
             {

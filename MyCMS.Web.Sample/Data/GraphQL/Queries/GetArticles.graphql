@@ -1,0 +1,61 @@
+query GetArticles($first: Int, $last: Int, $sfter: String, $before: String) {
+  content(
+    first: $first
+    last: $last
+    after: $sfter,
+    before: $before
+    where: { 
+    contentType: { 
+      name : { 
+        eq: "Article" 
+      }
+    }
+  }
+  order: { 
+    createDatetime: DESC 
+  }) {
+    edges {
+      cursor
+      node {
+        title
+        body
+        createDatetime
+        createUser {
+          username
+        }
+        attributes {
+          attribute {
+            name
+            attributeType
+          }
+          attributeOption {
+            value
+          }
+          valueText
+          valueDate
+          valueNumber
+        }
+        contents {
+          referredContent {
+            title
+            body
+            url
+            contentType {
+              name
+            }
+            createDatetime
+            createUser {
+              username
+            }
+          }
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+  }
+}

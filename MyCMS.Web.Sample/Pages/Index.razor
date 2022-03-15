@@ -1,0 +1,85 @@
+﻿@page "/"
+@using MyCMS.Web.Sample.Components;
+@using MyCMS.Web.Sample.Data.Articles;
+@inject ArticleService service;
+
+<PageTitle>Index</PageTitle>
+
+@if(ViewModel != null)
+{
+    <CursorPaging PageSize=PageSize ViewModel=ViewModel OnPreviousPage=OnPreviousPage OnNextPage=OnNextPage />
+
+    <div class="row">
+    @foreach (var article in ViewModel.Articles)
+    {
+        <div class="col-sm-4 mb-5">
+            <div class="card">
+                @if(article.Images.Any())
+                {
+                    <img class="card-img-top" src="@article.Images.First().Url" title="@article.Images.First().Title" alt="@article.Images.First().Title">
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@article.Title</h5>
+                    <p class="card-text">@article.Body</p>
+                </div>
+                @if(article.Attributes.Any())
+                {
+                <ul class="list-group list-group-flush">
+                    @foreach (var attr in article.Attributes)
+                    {
+                        <li class="list-group-item"><span>@attr.Name</span>: @attr.Value</li>    
+                    }
+                </ul>
+                }          
+                <div class="card-body">
+                    <a href="#" class="card-link" onclick="OnOpenComments">Comments (@article.Comments.Count())</a>
+                    <a href="#" class="card-link" onclick="OnOpenImages">Images (@article.Images.Count())</a>
+                    <a href="#" class="card-link" onclick="OnArticleDetail">Details</a>
+                </div>
+
+                <div class="card-footer text-muted">
+                    Writen by @article.CreateUser on @article.CreateDatetime
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+
+    <CursorPaging PageSize=PageSize ViewModel=ViewModel OnPreviousPage=OnPreviousPage OnNextPage=OnNextPage />
+}
+
+@code {
+    private ArticlesViewModel ViewModel = null;
+
+    private int PageSize = 9;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ViewModel = await service.GetArticlesViewModelAsync(first: PageSize);
+    }
+    
+    async Task OnPreviousPage()
+    {
+        ViewModel = await service.GetArticlesViewModelAsync(last: PageSize, before: ViewModel.StartCursor);
+    }
+
+    async Task OnNextPage()
+    {
+        ViewModel = await service.GetArticlesViewModelAsync(first: PageSize, after: ViewModel.EndCursor);
+    }
+
+    void OnOpenComments()
+    {
+
+    }
+
+    void OnOpenImages()
+    {
+
+    }
+
+    void OnArticleDetail()
+    {
+
+    }
+}

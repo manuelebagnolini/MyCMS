@@ -1,0 +1,30 @@
+{
+  "schema": "schema.graphql",
+  "documents": "**/*.graphql",
+  "extensions": {
+    "strawberryShake": {
+      "name": "MyCMSClient",
+      "url": "https://localhost:7040/graphql/",
+      "namespace": "MyCMS.Web.Sample.Data.GraphQL",
+      "dependencyInjection": true,
+      "strictSchemaValidation": true,
+      "hashAlgorithm": "md5",
+      "useSingleFile": true,
+      "requestStrategy": "Default",
+      "outputDirectoryName": "Generated",
+      "noStore": false,
+      "emitGeneratedCode": true,
+      "razorComponents": false,
+      "records": {
+        "inputs": false,
+        "entities": false
+      },
+      "transportProfiles": [
+        {
+          "default": "Http",
+          "subscription": "WebSocket"
+        }
+      ]
+    }
+  }
+}

@@ -13,6 +13,7 @@ namespace MyCMS.Web.API.Queries
         /// </summary>
         /// <param name="contentRepository"></param>
         /// <returns></returns>
+        [UsePaging]
         [UseProjection]
         [UseFiltering]
         [UseSorting]

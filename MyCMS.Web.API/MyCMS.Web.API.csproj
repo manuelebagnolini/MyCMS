@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mycms.core\MyCMS.Core.csproj" />
+    <ProjectReference Include="..\MyCMS.Core\MyCMS.Core.csproj" />
     <ProjectReference Include="..\MyCMS.Data\MyCMS.Data.csproj" />
   </ItemGroup>
 

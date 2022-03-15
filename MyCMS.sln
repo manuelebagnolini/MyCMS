@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCMS.Core", "mycms.core\MyCMS.Core.csproj", "{60BE4049-E704-473D-93CA-8F4B6029E388}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCMS.Core", "mycms.core\MyCMS.Core.csproj", "{60BE4049-E704-473D-93CA-8F4B6029E388}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCMS.Data", "MyCMS.Data\MyCMS.Data.csproj", "{424FD103-232F-457E-A778-9CEFC7D41A11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCMS.Data", "MyCMS.Data\MyCMS.Data.csproj", "{424FD103-232F-457E-A778-9CEFC7D41A11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCMS.Web.API", "MyCMS.Web.API\MyCMS.Web.API.csproj", "{F4EE104F-60B2-4A04-89C0-45FC8202719D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCMS.Web.API", "MyCMS.Web.API\MyCMS.Web.API.csproj", "{F4EE104F-60B2-4A04-89C0-45FC8202719D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCMS.Web.Sample", "MyCMS.Web.Sample\MyCMS.Web.Sample.csproj", "{D61BCA36-5D9E-437A-B5D3-A6DC5DB141D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F4EE104F-60B2-4A04-89C0-45FC8202719D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4EE104F-60B2-4A04-89C0-45FC8202719D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4EE104F-60B2-4A04-89C0-45FC8202719D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D61BCA36-5D9E-437A-B5D3-A6DC5DB141D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D61BCA36-5D9E-437A-B5D3-A6DC5DB141D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D61BCA36-5D9E-437A-B5D3-A6DC5DB141D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D61BCA36-5D9E-437A-B5D3-A6DC5DB141D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
