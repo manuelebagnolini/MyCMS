@@ -32,9 +32,9 @@
                 </ul>
                 }          
                 <div class="card-body">
-                    <a href="#" class="card-link" onclick="OnOpenComments">Comments (@article.Comments.Count())</a>
-                    <a href="#" class="card-link" onclick="OnOpenImages">Images (@article.Images.Count())</a>
-                    <a href="#" class="card-link" onclick="OnArticleDetail">Details</a>
+                    <a href="#" class="card-link" @onclick="OnOpenComments">Comments (@article.Comments.Count())</a>
+                    <a href="#" class="card-link" @onclick="OnOpenImages">Images (@article.Images.Count())</a>
+                    <a href="#" class="card-link" @onclick="OnArticleDetail">Details</a>
                 </div>
 
                 <div class="card-footer text-muted">
