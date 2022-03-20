@@ -30,6 +30,12 @@
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach"
+        },
+        {
+            "name": "Launch and Debug",
+            "type": "blazorwasm",
+            "request": "launch",
+            "url": "https://localhost:7058"
         }
     ]
 }

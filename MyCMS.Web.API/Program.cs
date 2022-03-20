@@ -41,6 +41,20 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(System.IO.Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
+// CORS policies for the sample Blazor WebAssembly frontend
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "_sampleWASM",
+                      builder =>
+                      {
+                          builder
+                            .WithOrigins("https://localhost:7058",
+                                         "http://localhost:5059")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                      });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -48,6 +62,9 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
+    // enable CORS policies for sample WASM for development only
+    app.UseCors("_sampleWASM");
 }
 
 app.UseHttpsRedirection();
