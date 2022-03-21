@@ -99,6 +99,11 @@ namespace MyCMS.Data.TestData
             {
                 new ContentRelationType
                 {
+                    Name = "Header",
+                    Description = "The referred content is used in the header of the main content"
+                },
+                new ContentRelationType
+                {
                     Name = "Composition",
                     Description = "The referred content is used to compose the main content"
                 },
@@ -185,7 +190,7 @@ namespace MyCMS.Data.TestData
 
                 images.Add(new Content
                 {
-                    Title = "This is just a test image " + num,
+                    Title = "This is just a test image for the header " + num,
                     Body = null,
                     Url = "https://lo2y.com/wp-content/uploads/2016/02/hello-world-510x219.png",
                     ContentType = contentTypes[1],
@@ -201,12 +206,92 @@ namespace MyCMS.Data.TestData
                             ValueText = "Added image to say hello"
                         }
                     },
-                        ReferencedBy = new List<ContentRelation>
+                    ReferencedBy = new List<ContentRelation>
                     {
                         new ContentRelation
                         {
                             ContainerContent = articles[num-1],
                             ContentRelationType = contentRelationTypes[0]
+                        }
+                    }
+                });
+
+                images.Add(new Content
+                {
+                    Title = "This is just another test image " + num,
+                    Body = null,
+                    Url = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+                    ContentType = contentTypes[1],
+                    CreateUser = users[1],
+                    CreateDatetime = DateTime.Now,
+                    ModifyUser = users[1],
+                    ModifyDatetime = DateTime.Now,
+                    ReferencedBy = new List<ContentRelation>
+                    {
+                        new ContentRelation
+                        {
+                            ContainerContent = articles[num-1],
+                            ContentRelationType = contentRelationTypes[1]
+                        }
+                    }
+                });
+
+                images.Add(new Content
+                {
+                    Title = "This is just another test image " + num,
+                    Body = null,
+                    Url = "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9jdXN8ZW58MHx8MHx8&w=1000&q=80",
+                    ContentType = contentTypes[1],
+                    CreateUser = users[1],
+                    CreateDatetime = DateTime.Now,
+                    ModifyUser = users[1],
+                    ModifyDatetime = DateTime.Now,
+                    ReferencedBy = new List<ContentRelation>
+                    {
+                        new ContentRelation
+                        {
+                            ContainerContent = articles[num-1],
+                            ContentRelationType = contentRelationTypes[1]
+                        }
+                    }
+                });
+
+                images.Add(new Content
+                {
+                    Title = "This is just another test image " + num,
+                    Body = null,
+                    Url = "https://media.istockphoto.com/photos/picturesque-morning-in-plitvice-national-park-colorful-spring-scene-picture-id1093110112?k=20&m=1093110112&s=612x612&w=0&h=3OhKOpvzOSJgwThQmGhshfOnZTvMExZX2R91jNNStBY=",
+                    ContentType = contentTypes[1],
+                    CreateUser = users[1],
+                    CreateDatetime = DateTime.Now,
+                    ModifyUser = users[1],
+                    ModifyDatetime = DateTime.Now,
+                    ReferencedBy = new List<ContentRelation>
+                    {
+                        new ContentRelation
+                        {
+                            ContainerContent = articles[num-1],
+                            ContentRelationType = contentRelationTypes[1]
+                        }
+                    }
+                });
+
+                images.Add(new Content
+                {
+                    Title = "This is just another test image " + num,
+                    Body = null,
+                    Url = "https://images.ctfassets.net/hrltx12pl8hq/7JnR6tVVwDyUM8Cbci3GtJ/bf74366cff2ba271471725d0b0ef418c/shutterstock_376532611-og.jpg",
+                    ContentType = contentTypes[1],
+                    CreateUser = users[1],
+                    CreateDatetime = DateTime.Now,
+                    ModifyUser = users[1],
+                    ModifyDatetime = DateTime.Now,
+                    ReferencedBy = new List<ContentRelation>
+                    {
+                        new ContentRelation
+                        {
+                            ContainerContent = articles[num-1],
+                            ContentRelationType = contentRelationTypes[1]
                         }
                     }
                 });
@@ -234,7 +319,7 @@ namespace MyCMS.Data.TestData
                         new ContentRelation
                         {
                             ContainerContent = articles[num-1],
-                            ContentRelationType = contentRelationTypes[1]
+                            ContentRelationType = contentRelationTypes[2]
                         }
                     }
                 });

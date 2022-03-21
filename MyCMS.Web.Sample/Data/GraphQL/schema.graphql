@@ -2,10 +2,134 @@
   query: ContentQuery
 }
 
-"Query type registered in GraphQL"
-type ContentQuery {
-  "Main query for inspect content."
-  content("Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: ContentFilterInput order: [ContentSortInput!]): ContentConnection
+type Content {
+  attributes(where: ContentAttributeFilterInput order: [ContentAttributeSortInput!]): [ContentAttribute]
+  contents(where: ContentRelationFilterInput order: [ContentRelationSortInput!]): [ContentRelation]
+  referencedBy(where: ContentRelationFilterInput order: [ContentRelationSortInput!]): [ContentRelation]
+  title: String
+  body: String
+  url: String
+  contentTypeId: Int!
+  createUserId: Int!
+  createDatetime: DateTime!
+  modifyUserId: Int!
+  modifyDatetime: DateTime!
+  contentType: ContentType
+  createUser: User
+  modifyUser: User
+  id: Int!
+}
+
+input ContentAttributeFilterInput {
+  and: [ContentAttributeFilterInput!]
+  or: [ContentAttributeFilterInput!]
+  contentId: ComparableInt32OperationFilterInput
+  attributeId: ComparableInt32OperationFilterInput
+  valueText: StringOperationFilterInput
+  valueNumber: ComparableNullableOfInt32OperationFilterInput
+  valueDate: ComparableNullableOfDateTimeOperationFilterInput
+  attributeOptionId: ComparableNullableOfInt32OperationFilterInput
+  content: ContentFilterInput
+  attribute: AttributeFilterInput
+  attributeOption: AttributeOptionFilterInput
+  id: ComparableInt32OperationFilterInput
+}
+
+input ContentAttributeSortInput {
+  contentId: SortEnumType
+  attributeId: SortEnumType
+  valueText: SortEnumType
+  valueNumber: SortEnumType
+  valueDate: SortEnumType
+  attributeOptionId: SortEnumType
+  content: ContentSortInput
+  attribute: AttributeSortInput
+  attributeOption: AttributeOptionSortInput
+  id: SortEnumType
+}
+
+input ContentRelationFilterInput {
+  and: [ContentRelationFilterInput!]
+  or: [ContentRelationFilterInput!]
+  contentRelationId: ComparableInt32OperationFilterInput
+  containerContentId: ComparableInt32OperationFilterInput
+  referredContentId: ComparableInt32OperationFilterInput
+  contentRelationTypeId: ComparableInt32OperationFilterInput
+  containerContent: ContentFilterInput
+  referredContent: ContentFilterInput
+  contentRelationType: ContentRelationTypeFilterInput
+  id: ComparableInt32OperationFilterInput
+}
+
+input ContentRelationSortInput {
+  contentRelationId: SortEnumType
+  containerContentId: SortEnumType
+  referredContentId: SortEnumType
+  contentRelationTypeId: SortEnumType
+  containerContent: ContentSortInput
+  referredContent: ContentSortInput
+  contentRelationType: ContentRelationTypeSortInput
+  id: SortEnumType
+}
+
+input ComparableInt32OperationFilterInput {
+  eq: Int
+  neq: Int
+  in: [Int!]
+  nin: [Int!]
+  gt: Int
+  ngt: Int
+  gte: Int
+  ngte: Int
+  lt: Int
+  nlt: Int
+  lte: Int
+  nlte: Int
+}
+
+input StringOperationFilterInput {
+  and: [StringOperationFilterInput!]
+  or: [StringOperationFilterInput!]
+  eq: String
+  neq: String
+  contains: String
+  ncontains: String
+  in: [String]
+  nin: [String]
+  startsWith: String
+  nstartsWith: String
+  endsWith: String
+  nendsWith: String
+}
+
+input ComparableNullableOfInt32OperationFilterInput {
+  eq: Int
+  neq: Int
+  in: [Int]
+  nin: [Int]
+  gt: Int
+  ngt: Int
+  gte: Int
+  ngte: Int
+  lt: Int
+  nlt: Int
+  lte: Int
+  nlte: Int
+}
+
+input ComparableNullableOfDateTimeOperationFilterInput {
+  eq: DateTime
+  neq: DateTime
+  in: [DateTime]
+  nin: [DateTime]
+  gt: DateTime
+  ngt: DateTime
+  gte: DateTime
+  ngte: DateTime
+  lt: DateTime
+  nlt: DateTime
+  lte: DateTime
+  nlte: DateTime
 }
 
 input ContentFilterInput {
@@ -28,6 +152,30 @@ input ContentFilterInput {
   id: ComparableInt32OperationFilterInput
 }
 
+input AttributeFilterInput {
+  and: [AttributeFilterInput!]
+  or: [AttributeFilterInput!]
+  name: StringOperationFilterInput
+  description: StringOperationFilterInput
+  attributeType: AttributeTypesOperationFilterInput
+  options: ListFilterInputTypeOfAttributeOptionFilterInput
+  id: ComparableInt32OperationFilterInput
+}
+
+input AttributeOptionFilterInput {
+  and: [AttributeOptionFilterInput!]
+  or: [AttributeOptionFilterInput!]
+  attributeId: ComparableInt32OperationFilterInput
+  value: StringOperationFilterInput
+  attribute: AttributeFilterInput
+  id: ComparableInt32OperationFilterInput
+}
+
+enum SortEnumType {
+  ASC
+  DESC
+}
+
 input ContentSortInput {
   title: SortEnumType
   body: SortEnumType
@@ -43,44 +191,32 @@ input ContentSortInput {
   id: SortEnumType
 }
 
-"A connection to a list of items."
-type ContentConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [ContentEdge!]
-  "A flattened list of the nodes."
-  nodes: [Content]
+input AttributeSortInput {
+  name: SortEnumType
+  description: SortEnumType
+  attributeType: SortEnumType
+  id: SortEnumType
 }
 
-input StringOperationFilterInput {
-  and: [StringOperationFilterInput!]
-  or: [StringOperationFilterInput!]
-  eq: String
-  neq: String
-  contains: String
-  ncontains: String
-  in: [String]
-  nin: [String]
-  startsWith: String
-  nstartsWith: String
-  endsWith: String
-  nendsWith: String
+input AttributeOptionSortInput {
+  attributeId: SortEnumType
+  value: SortEnumType
+  attribute: AttributeSortInput
+  id: SortEnumType
 }
 
-input ComparableInt32OperationFilterInput {
-  eq: Int
-  neq: Int
-  in: [Int!]
-  nin: [Int!]
-  gt: Int
-  ngt: Int
-  gte: Int
-  ngte: Int
-  lt: Int
-  nlt: Int
-  lte: Int
-  nlte: Int
+input ContentRelationTypeFilterInput {
+  and: [ContentRelationTypeFilterInput!]
+  or: [ContentRelationTypeFilterInput!]
+  name: StringOperationFilterInput
+  description: StringOperationFilterInput
+  id: ComparableInt32OperationFilterInput
+}
+
+input ContentRelationTypeSortInput {
+  name: SortEnumType
+  description: SortEnumType
+  id: SortEnumType
 }
 
 input ComparableDateTimeOperationFilterInput {
@@ -130,9 +266,18 @@ input ListFilterInputTypeOfContentRelationFilterInput {
   any: Boolean
 }
 
-enum SortEnumType {
-  ASC
-  DESC
+input AttributeTypesOperationFilterInput {
+  eq: AttributeTypes
+  neq: AttributeTypes
+  in: [AttributeTypes!]
+  nin: [AttributeTypes!]
+}
+
+input ListFilterInputTypeOfAttributeOptionFilterInput {
+  all: AttributeOptionFilterInput
+  none: AttributeOptionFilterInput
+  some: AttributeOptionFilterInput
+  any: Boolean
 }
 
 input ContentTypeSortInput {
@@ -149,158 +294,10 @@ input UserSortInput {
   id: SortEnumType
 }
 
-"Information about pagination in a connection."
-type PageInfo {
-  "Indicates whether more edges exist following the set defined by the clients arguments."
-  hasNextPage: Boolean!
-  "Indicates whether more edges exist prior the set defined by the clients arguments."
-  hasPreviousPage: Boolean!
-  "When paginating backwards, the cursor to continue."
-  startCursor: String
-  "When paginating forwards, the cursor to continue."
-  endCursor: String
-}
-
-type Content {
-  title: String
-  body: String
-  url: String
-  contentTypeId: Int!
-  createUserId: Int!
-  createDatetime: DateTime!
-  modifyUserId: Int!
-  modifyDatetime: DateTime!
-  contentType: ContentType
-  createUser: User
-  modifyUser: User
-  attributes: [ContentAttribute]
-  contents: [ContentRelation]
-  referencedBy: [ContentRelation]
-  id: Int!
-}
-
-"An edge in a connection."
-type ContentEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: Content
-}
-
-input ContentAttributeFilterInput {
-  and: [ContentAttributeFilterInput!]
-  or: [ContentAttributeFilterInput!]
-  contentId: ComparableInt32OperationFilterInput
-  attributeId: ComparableInt32OperationFilterInput
-  valueText: StringOperationFilterInput
-  valueNumber: ComparableNullableOfInt32OperationFilterInput
-  valueDate: ComparableNullableOfDateTimeOperationFilterInput
-  attributeOptionId: ComparableNullableOfInt32OperationFilterInput
-  content: ContentFilterInput
-  attribute: AttributeFilterInput
-  attributeOption: AttributeOptionFilterInput
-  id: ComparableInt32OperationFilterInput
-}
-
-input ContentRelationFilterInput {
-  and: [ContentRelationFilterInput!]
-  or: [ContentRelationFilterInput!]
-  contentRelationId: ComparableInt32OperationFilterInput
-  containerContentId: ComparableInt32OperationFilterInput
-  referredContentId: ComparableInt32OperationFilterInput
-  contentRelationTypeId: ComparableInt32OperationFilterInput
-  containerContent: ContentFilterInput
-  referredContent: ContentFilterInput
-  contentRelationType: ContentRelationTypeFilterInput
-  id: ComparableInt32OperationFilterInput
-}
-
-input ComparableNullableOfInt32OperationFilterInput {
-  eq: Int
-  neq: Int
-  in: [Int]
-  nin: [Int]
-  gt: Int
-  ngt: Int
-  gte: Int
-  ngte: Int
-  lt: Int
-  nlt: Int
-  lte: Int
-  nlte: Int
-}
-
-input ComparableNullableOfDateTimeOperationFilterInput {
-  eq: DateTime
-  neq: DateTime
-  in: [DateTime]
-  nin: [DateTime]
-  gt: DateTime
-  ngt: DateTime
-  gte: DateTime
-  ngte: DateTime
-  lt: DateTime
-  nlt: DateTime
-  lte: DateTime
-  nlte: DateTime
-}
-
-input AttributeFilterInput {
-  and: [AttributeFilterInput!]
-  or: [AttributeFilterInput!]
-  name: StringOperationFilterInput
-  description: StringOperationFilterInput
-  attributeType: AttributeTypesOperationFilterInput
-  options: ListFilterInputTypeOfAttributeOptionFilterInput
-  id: ComparableInt32OperationFilterInput
-}
-
-input AttributeOptionFilterInput {
-  and: [AttributeOptionFilterInput!]
-  or: [AttributeOptionFilterInput!]
-  attributeId: ComparableInt32OperationFilterInput
-  value: StringOperationFilterInput
-  attribute: AttributeFilterInput
-  id: ComparableInt32OperationFilterInput
-}
-
-input ContentRelationTypeFilterInput {
-  and: [ContentRelationTypeFilterInput!]
-  or: [ContentRelationTypeFilterInput!]
-  name: StringOperationFilterInput
-  description: StringOperationFilterInput
-  id: ComparableInt32OperationFilterInput
-}
-
-input AttributeTypesOperationFilterInput {
-  eq: AttributeTypes
-  neq: AttributeTypes
-  in: [AttributeTypes!]
-  nin: [AttributeTypes!]
-}
-
-input ListFilterInputTypeOfAttributeOptionFilterInput {
-  all: AttributeOptionFilterInput
-  none: AttributeOptionFilterInput
-  some: AttributeOptionFilterInput
-  any: Boolean
-}
-
-"The `DateTime` scalar represents an ISO-8601 compliant date time type."
-scalar DateTime
-
-type ContentType {
-  name: String
-  description: String
-  id: Int!
-}
-
-type User {
-  username: String
-  name: String
-  surname: String
-  email: String
-  id: Int!
+"Query type registered in GraphQL"
+type ContentQuery {
+  "Main query for inspect content."
+  content("Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: ContentFilterInput order: [ContentSortInput!]): ContentConnection
 }
 
 type ContentAttribute {
@@ -327,11 +324,58 @@ type ContentRelation {
   id: Int!
 }
 
+"The `DateTime` scalar represents an ISO-8601 compliant date time type."
+scalar DateTime
+
+type ContentType {
+  name: String
+  description: String
+  id: Int!
+}
+
+type User {
+  username: String
+  name: String
+  surname: String
+  email: String
+  id: Int!
+}
+
 enum AttributeTypes {
   TEXT
   NUMBER
   DATE
   SELECT
+}
+
+"A connection to a list of items."
+type ContentConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [ContentEdge!]
+  "A flattened list of the nodes."
+  nodes: [Content]
+}
+
+"Information about pagination in a connection."
+type PageInfo {
+  "Indicates whether more edges exist following the set defined by the clients arguments."
+  hasNextPage: Boolean!
+  "Indicates whether more edges exist prior the set defined by the clients arguments."
+  hasPreviousPage: Boolean!
+  "When paginating backwards, the cursor to continue."
+  startCursor: String
+  "When paginating forwards, the cursor to continue."
+  endCursor: String
+}
+
+"An edge in a connection."
+type ContentEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Content
 }
 
 type ContentRelationType {

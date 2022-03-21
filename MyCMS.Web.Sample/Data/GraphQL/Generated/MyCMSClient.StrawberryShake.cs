@@ -33,12 +33,10 @@ namespace Microsoft.Extensions.DependencyInjection
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_Content>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_ContentFromContentEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_CreateUser_User>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_CreateUser_UserFromUserEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentAttributeEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_Attributes_ContentAttribute>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_Contents_ContentRelation>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_HeaderImages_ContentRelation>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_Attributes_Attribute_Attribute>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeOptionEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOption>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_Contents_ReferredContent_Content>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, global::MyCMS.Web.Sample.Data.GraphQL.GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content>, global::MyCMS.Web.Sample.Data.GraphQL.State.GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::MyCMS.Web.Sample.Data.GraphQL.AttributeTypesSerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.StringSerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.BooleanSerializer>(services);
@@ -173,21 +171,21 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
     public partial class GetArticles_Content_ContentConnection : global::System.IEquatable<GetArticles_Content_ContentConnection>, IGetArticles_Content_ContentConnection
     {
-        public GetArticles_Content_ContentConnection(global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges>? edges, global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_PageInfo pageInfo)
+        public GetArticles_Content_ContentConnection(global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_PageInfo pageInfo, global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges>? edges)
         {
-            Edges = edges;
             PageInfo = pageInfo;
+            Edges = edges;
         }
-
-        /// <summary>
-        /// A list of edges.
-        /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges>? Edges { get; }
 
         /// <summary>
         /// Information to aid in pagination.
         /// </summary>
         public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_PageInfo PageInfo { get; }
+
+        /// <summary>
+        /// A list of edges.
+        /// </summary>
+        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges>? Edges { get; }
 
         public virtual global::System.Boolean Equals(GetArticles_Content_ContentConnection? other)
         {
@@ -206,7 +204,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL
                 return false;
             }
 
-            return (global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Edges, other.Edges)) && PageInfo.Equals(other.PageInfo);
+            return (PageInfo.Equals(other.PageInfo)) && global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Edges, other.Edges);
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -234,91 +232,13 @@ namespace MyCMS.Web.Sample.Data.GraphQL
             unchecked
             {
                 int hash = 5;
+                hash ^= 397 * PageInfo.GetHashCode();
                 if (Edges != null)
                 {
                     foreach (var Edges_elm in Edges)
                     {
                         hash ^= 397 * Edges_elm.GetHashCode();
                     }
-                }
-
-                hash ^= 397 * PageInfo.GetHashCode();
-                return hash;
-            }
-        }
-    }
-
-    /// <summary>
-    /// An edge in a connection.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class GetArticles_Content_Edges_ContentEdge : global::System.IEquatable<GetArticles_Content_Edges_ContentEdge>, IGetArticles_Content_Edges_ContentEdge
-    {
-        public GetArticles_Content_Edges_ContentEdge(global::System.String cursor, global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node? node)
-        {
-            Cursor = cursor;
-            Node = node;
-        }
-
-        /// <summary>
-        /// A cursor for use in pagination.
-        /// </summary>
-        public global::System.String Cursor { get; }
-
-        /// <summary>
-        /// The item at the end of the edge.
-        /// </summary>
-        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node? Node { get; }
-
-        public virtual global::System.Boolean Equals(GetArticles_Content_Edges_ContentEdge? other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return (Cursor.Equals(other.Cursor)) && ((Node is null && other.Node is null) || Node != null && Node.Equals(other.Node));
-        }
-
-        public override global::System.Boolean Equals(global::System.Object? obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return Equals((GetArticles_Content_Edges_ContentEdge)obj);
-        }
-
-        public override global::System.Int32 GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 5;
-                hash ^= 397 * Cursor.GetHashCode();
-                if (Node != null)
-                {
-                    hash ^= 397 * Node.GetHashCode();
                 }
 
                 return hash;
@@ -422,17 +342,95 @@ namespace MyCMS.Web.Sample.Data.GraphQL
         }
     }
 
+    /// <summary>
+    /// An edge in a connection.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
+    public partial class GetArticles_Content_Edges_ContentEdge : global::System.IEquatable<GetArticles_Content_Edges_ContentEdge>, IGetArticles_Content_Edges_ContentEdge
+    {
+        public GetArticles_Content_Edges_ContentEdge(global::System.String cursor, global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node? node)
+        {
+            Cursor = cursor;
+            Node = node;
+        }
+
+        /// <summary>
+        /// A cursor for use in pagination.
+        /// </summary>
+        public global::System.String Cursor { get; }
+
+        /// <summary>
+        /// The item at the end of the edge.
+        /// </summary>
+        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node? Node { get; }
+
+        public virtual global::System.Boolean Equals(GetArticles_Content_Edges_ContentEdge? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (Cursor.Equals(other.Cursor)) && ((Node is null && other.Node is null) || Node != null && Node.Equals(other.Node));
+        }
+
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((GetArticles_Content_Edges_ContentEdge)obj);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                hash ^= 397 * Cursor.GetHashCode();
+                if (Node != null)
+                {
+                    hash ^= 397 * Node.GetHashCode();
+                }
+
+                return hash;
+            }
+        }
+    }
+
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
     public partial class GetArticles_Content_Edges_Node_Content : global::System.IEquatable<GetArticles_Content_Edges_Node_Content>, IGetArticles_Content_Edges_Node_Content
     {
-        public GetArticles_Content_Edges_Node_Content(global::System.String? title, global::System.String? body, global::System.DateTimeOffset createDatetime, global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_CreateUser? createUser, global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Attributes?>? attributes, global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents?>? contents)
+        public GetArticles_Content_Edges_Node_Content(global::System.String? title, global::System.String? body, global::System.DateTimeOffset createDatetime, global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_CreateUser? createUser, global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Attributes?>? attributes, global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages?>? headerImages)
         {
             Title = title;
             Body = body;
             CreateDatetime = createDatetime;
             CreateUser = createUser;
             Attributes = attributes;
-            Contents = contents;
+            HeaderImages = headerImages;
         }
 
         public global::System.String? Title { get; }
@@ -445,7 +443,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL
 
         public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Attributes?>? Attributes { get; }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents?>? Contents { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages?>? HeaderImages { get; }
 
         public virtual global::System.Boolean Equals(GetArticles_Content_Edges_Node_Content? other)
         {
@@ -464,7 +462,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL
                 return false;
             }
 
-            return (((Title is null && other.Title is null) || Title != null && Title.Equals(other.Title))) && ((Body is null && other.Body is null) || Body != null && Body.Equals(other.Body)) && CreateDatetime.Equals(other.CreateDatetime) && ((CreateUser is null && other.CreateUser is null) || CreateUser != null && CreateUser.Equals(other.CreateUser)) && global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Attributes, other.Attributes) && global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Contents, other.Contents);
+            return (((Title is null && other.Title is null) || Title != null && Title.Equals(other.Title))) && ((Body is null && other.Body is null) || Body != null && Body.Equals(other.Body)) && CreateDatetime.Equals(other.CreateDatetime) && ((CreateUser is null && other.CreateUser is null) || CreateUser != null && CreateUser.Equals(other.CreateUser)) && global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Attributes, other.Attributes) && global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(HeaderImages, other.HeaderImages);
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -519,13 +517,13 @@ namespace MyCMS.Web.Sample.Data.GraphQL
                     }
                 }
 
-                if (Contents != null)
+                if (HeaderImages != null)
                 {
-                    foreach (var Contents_elm in Contents)
+                    foreach (var HeaderImages_elm in HeaderImages)
                     {
-                        if (Contents_elm != null)
+                        if (HeaderImages_elm != null)
                         {
-                            hash ^= 397 * Contents_elm.GetHashCode();
+                            hash ^= 397 * HeaderImages_elm.GetHashCode();
                         }
                     }
                 }
@@ -698,16 +696,16 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class GetArticles_Content_Edges_Node_Contents_ContentRelation : global::System.IEquatable<GetArticles_Content_Edges_Node_Contents_ContentRelation>, IGetArticles_Content_Edges_Node_Contents_ContentRelation
+    public partial class GetArticles_Content_Edges_Node_HeaderImages_ContentRelation : global::System.IEquatable<GetArticles_Content_Edges_Node_HeaderImages_ContentRelation>, IGetArticles_Content_Edges_Node_HeaderImages_ContentRelation
     {
-        public GetArticles_Content_Edges_Node_Contents_ContentRelation(global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent? referredContent)
+        public GetArticles_Content_Edges_Node_HeaderImages_ContentRelation(global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent? referredContent)
         {
             ReferredContent = referredContent;
         }
 
-        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent? ReferredContent { get; }
+        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent? ReferredContent { get; }
 
-        public virtual global::System.Boolean Equals(GetArticles_Content_Edges_Node_Contents_ContentRelation? other)
+        public virtual global::System.Boolean Equals(GetArticles_Content_Edges_Node_HeaderImages_ContentRelation? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -744,7 +742,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL
                 return false;
             }
 
-            return Equals((GetArticles_Content_Edges_Node_Contents_ContentRelation)obj);
+            return Equals((GetArticles_Content_Edges_Node_HeaderImages_ContentRelation)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -897,31 +895,19 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class GetArticles_Content_Edges_Node_Contents_ReferredContent_Content : global::System.IEquatable<GetArticles_Content_Edges_Node_Contents_ReferredContent_Content>, IGetArticles_Content_Edges_Node_Contents_ReferredContent_Content
+    public partial class GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content : global::System.IEquatable<GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content>, IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content
     {
-        public GetArticles_Content_Edges_Node_Contents_ReferredContent_Content(global::System.String? title, global::System.String? body, global::System.String? url, global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType? contentType, global::System.DateTimeOffset createDatetime, global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser? createUser)
+        public GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content(global::System.String? title, global::System.String? url)
         {
             Title = title;
-            Body = body;
             Url = url;
-            ContentType = contentType;
-            CreateDatetime = createDatetime;
-            CreateUser = createUser;
         }
 
         public global::System.String? Title { get; }
 
-        public global::System.String? Body { get; }
-
         public global::System.String? Url { get; }
 
-        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType? ContentType { get; }
-
-        public global::System.DateTimeOffset CreateDatetime { get; }
-
-        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser? CreateUser { get; }
-
-        public virtual global::System.Boolean Equals(GetArticles_Content_Edges_Node_Contents_ReferredContent_Content? other)
+        public virtual global::System.Boolean Equals(GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -938,7 +924,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL
                 return false;
             }
 
-            return (((Title is null && other.Title is null) || Title != null && Title.Equals(other.Title))) && ((Body is null && other.Body is null) || Body != null && Body.Equals(other.Body)) && ((Url is null && other.Url is null) || Url != null && Url.Equals(other.Url)) && ((ContentType is null && other.ContentType is null) || ContentType != null && ContentType.Equals(other.ContentType)) && CreateDatetime.Equals(other.CreateDatetime) && ((CreateUser is null && other.CreateUser is null) || CreateUser != null && CreateUser.Equals(other.CreateUser));
+            return (((Title is null && other.Title is null) || Title != null && Title.Equals(other.Title))) && ((Url is null && other.Url is null) || Url != null && Url.Equals(other.Url));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -958,7 +944,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL
                 return false;
             }
 
-            return Equals((GetArticles_Content_Edges_Node_Contents_ReferredContent_Content)obj);
+            return Equals((GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -971,155 +957,9 @@ namespace MyCMS.Web.Sample.Data.GraphQL
                     hash ^= 397 * Title.GetHashCode();
                 }
 
-                if (Body != null)
-                {
-                    hash ^= 397 * Body.GetHashCode();
-                }
-
                 if (Url != null)
                 {
                     hash ^= 397 * Url.GetHashCode();
-                }
-
-                if (ContentType != null)
-                {
-                    hash ^= 397 * ContentType.GetHashCode();
-                }
-
-                hash ^= 397 * CreateDatetime.GetHashCode();
-                if (CreateUser != null)
-                {
-                    hash ^= 397 * CreateUser.GetHashCode();
-                }
-
-                return hash;
-            }
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType : global::System.IEquatable<GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType>, IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType
-    {
-        public GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType(global::System.String? name)
-        {
-            Name = name;
-        }
-
-        public global::System.String? Name { get; }
-
-        public virtual global::System.Boolean Equals(GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType? other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return (((Name is null && other.Name is null) || Name != null && Name.Equals(other.Name)));
-        }
-
-        public override global::System.Boolean Equals(global::System.Object? obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return Equals((GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType)obj);
-        }
-
-        public override global::System.Int32 GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 5;
-                if (Name != null)
-                {
-                    hash ^= 397 * Name.GetHashCode();
-                }
-
-                return hash;
-            }
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User : global::System.IEquatable<GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User>, IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User
-    {
-        public GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User(global::System.String? username)
-        {
-            Username = username;
-        }
-
-        public global::System.String? Username { get; }
-
-        public virtual global::System.Boolean Equals(GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User? other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return (((Username is null && other.Username is null) || Username != null && Username.Equals(other.Username)));
-        }
-
-        public override global::System.Boolean Equals(global::System.Object? obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return Equals((GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User)obj);
-        }
-
-        public override global::System.Int32 GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 5;
-                if (Username != null)
-                {
-                    hash ^= 397 * Username.GetHashCode();
                 }
 
                 return hash;
@@ -1146,14 +986,14 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     public partial interface IGetArticles_Content
     {
         /// <summary>
-        /// A list of edges.
-        /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges>? Edges { get; }
-
-        /// <summary>
         /// Information to aid in pagination.
         /// </summary>
         public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_PageInfo PageInfo { get; }
+
+        /// <summary>
+        /// A list of edges.
+        /// </summary>
+        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges>? Edges { get; }
     }
 
     /// <summary>
@@ -1161,31 +1001,6 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
     public partial interface IGetArticles_Content_ContentConnection : IGetArticles_Content
-    {
-    }
-
-    /// <summary>
-    /// An edge in a connection.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges
-    {
-        /// <summary>
-        /// A cursor for use in pagination.
-        /// </summary>
-        public global::System.String Cursor { get; }
-
-        /// <summary>
-        /// The item at the end of the edge.
-        /// </summary>
-        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node? Node { get; }
-    }
-
-    /// <summary>
-    /// An edge in a connection.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges_ContentEdge : IGetArticles_Content_Edges
     {
     }
 
@@ -1224,6 +1039,31 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     {
     }
 
+    /// <summary>
+    /// An edge in a connection.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
+    public partial interface IGetArticles_Content_Edges
+    {
+        /// <summary>
+        /// A cursor for use in pagination.
+        /// </summary>
+        public global::System.String Cursor { get; }
+
+        /// <summary>
+        /// The item at the end of the edge.
+        /// </summary>
+        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node? Node { get; }
+    }
+
+    /// <summary>
+    /// An edge in a connection.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
+    public partial interface IGetArticles_Content_Edges_ContentEdge : IGetArticles_Content_Edges
+    {
+    }
+
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
     public partial interface IGetArticles_Content_Edges_Node
     {
@@ -1237,7 +1077,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL
 
         public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Attributes?>? Attributes { get; }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents?>? Contents { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages?>? HeaderImages { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
@@ -1276,13 +1116,13 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges_Node_Contents
+    public partial interface IGetArticles_Content_Edges_Node_HeaderImages
     {
-        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent? ReferredContent { get; }
+        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent? ReferredContent { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges_Node_Contents_ContentRelation : IGetArticles_Content_Edges_Node_Contents
+    public partial interface IGetArticles_Content_Edges_Node_HeaderImages_ContentRelation : IGetArticles_Content_Edges_Node_HeaderImages
     {
     }
 
@@ -1311,45 +1151,15 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges_Node_Contents_ReferredContent
+    public partial interface IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent
     {
         public global::System.String? Title { get; }
 
-        public global::System.String? Body { get; }
-
         public global::System.String? Url { get; }
-
-        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType? ContentType { get; }
-
-        public global::System.DateTimeOffset CreateDatetime { get; }
-
-        public global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser? CreateUser { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges_Node_Contents_ReferredContent_Content : IGetArticles_Content_Edges_Node_Contents_ReferredContent
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType
-    {
-        public global::System.String? Name { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType : IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser
-    {
-        public global::System.String? Username { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial interface IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User : IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser
+    public partial interface IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content : IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent
     {
     }
 
@@ -1395,6 +1205,13 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     /// query GetArticles($first: Int, $last: Int, $sfter: String, $before: String) {
     ///   content(first: $first, last: $last, after: $sfter, before: $before, where: { contentType: { name: { eq: "Article" } } }, order: { createDatetime: DESC }) {
     ///     __typename
+    ///     pageInfo {
+    ///       __typename
+    ///       hasNextPage
+    ///       hasPreviousPage
+    ///       startCursor
+    ///       endCursor
+    ///     }
     ///     edges {
     ///       __typename
     ///       cursor
@@ -1434,28 +1251,12 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     ///             id
     ///           }
     ///         }
-    ///         contents {
+    ///         headerImages: contents(where: { and: [ { contentRelationType: { name: { eq: "Header" } } }, { referredContent: { contentType: { name: { eq: "Image" } } } } ] }) {
     ///           __typename
     ///           referredContent {
     ///             __typename
     ///             title
-    ///             body
     ///             url
-    ///             contentType {
-    ///               __typename
-    ///               name
-    ///               ... on ContentType {
-    ///                 id
-    ///               }
-    ///             }
-    ///             createDatetime
-    ///             createUser {
-    ///               __typename
-    ///               username
-    ///               ... on User {
-    ///                 id
-    ///               }
-    ///             }
     ///             ... on Content {
     ///               id
     ///             }
@@ -1468,13 +1269,6 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     ///           id
     ///         }
     ///       }
-    ///     }
-    ///     pageInfo {
-    ///       __typename
-    ///       hasNextPage
-    ///       hasPreviousPage
-    ///       startCursor
-    ///       endCursor
     ///     }
     ///   }
     /// }
@@ -1489,8 +1283,8 @@ namespace MyCMS.Web.Sample.Data.GraphQL
 
         public static GetArticlesQueryDocument Instance { get; } = new GetArticlesQueryDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
-        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x73, 0x28, 0x24, 0x66, 0x69, 0x72, 0x73, 0x74, 0x3a, 0x20, 0x49, 0x6e, 0x74, 0x2c, 0x20, 0x24, 0x6c, 0x61, 0x73, 0x74, 0x3a, 0x20, 0x49, 0x6e, 0x74, 0x2c, 0x20, 0x24, 0x73, 0x66, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x2c, 0x20, 0x24, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x29, 0x20, 0x7b, 0x20, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x28, 0x66, 0x69, 0x72, 0x73, 0x74, 0x3a, 0x20, 0x24, 0x66, 0x69, 0x72, 0x73, 0x74, 0x2c, 0x20, 0x6c, 0x61, 0x73, 0x74, 0x3a, 0x20, 0x24, 0x6c, 0x61, 0x73, 0x74, 0x2c, 0x20, 0x61, 0x66, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x24, 0x73, 0x66, 0x74, 0x65, 0x72, 0x2c, 0x20, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x3a, 0x20, 0x24, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x2c, 0x20, 0x77, 0x68, 0x65, 0x72, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x65, 0x71, 0x3a, 0x20, 0x22, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x22, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x2c, 0x20, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x3a, 0x20, 0x7b, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x65, 0x74, 0x69, 0x6d, 0x65, 0x3a, 0x20, 0x44, 0x45, 0x53, 0x43, 0x20, 0x7d, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x65, 0x64, 0x67, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x63, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x20, 0x62, 0x6f, 0x64, 0x79, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x65, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x61, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x54, 0x79, 0x70, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x41, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x61, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x41, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x54, 0x65, 0x78, 0x74, 0x20, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x44, 0x61, 0x74, 0x65, 0x20, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x41, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x72, 0x65, 0x66, 0x65, 0x72, 0x72, 0x65, 0x64, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x20, 0x62, 0x6f, 0x64, 0x79, 0x20, 0x75, 0x72, 0x6c, 0x20, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x65, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x70, 0x61, 0x67, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x68, 0x61, 0x73, 0x4e, 0x65, 0x78, 0x74, 0x50, 0x61, 0x67, 0x65, 0x20, 0x68, 0x61, 0x73, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x50, 0x61, 0x67, 0x65, 0x20, 0x73, 0x74, 0x61, 0x72, 0x74, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x65, 0x6e, 0x64, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "df2f17e5ce993b63a3134091368ad6f2");
+        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x73, 0x28, 0x24, 0x66, 0x69, 0x72, 0x73, 0x74, 0x3a, 0x20, 0x49, 0x6e, 0x74, 0x2c, 0x20, 0x24, 0x6c, 0x61, 0x73, 0x74, 0x3a, 0x20, 0x49, 0x6e, 0x74, 0x2c, 0x20, 0x24, 0x73, 0x66, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x2c, 0x20, 0x24, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x29, 0x20, 0x7b, 0x20, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x28, 0x66, 0x69, 0x72, 0x73, 0x74, 0x3a, 0x20, 0x24, 0x66, 0x69, 0x72, 0x73, 0x74, 0x2c, 0x20, 0x6c, 0x61, 0x73, 0x74, 0x3a, 0x20, 0x24, 0x6c, 0x61, 0x73, 0x74, 0x2c, 0x20, 0x61, 0x66, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x24, 0x73, 0x66, 0x74, 0x65, 0x72, 0x2c, 0x20, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x3a, 0x20, 0x24, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x2c, 0x20, 0x77, 0x68, 0x65, 0x72, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x65, 0x71, 0x3a, 0x20, 0x22, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x22, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x2c, 0x20, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x3a, 0x20, 0x7b, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x65, 0x74, 0x69, 0x6d, 0x65, 0x3a, 0x20, 0x44, 0x45, 0x53, 0x43, 0x20, 0x7d, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x70, 0x61, 0x67, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x68, 0x61, 0x73, 0x4e, 0x65, 0x78, 0x74, 0x50, 0x61, 0x67, 0x65, 0x20, 0x68, 0x61, 0x73, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x50, 0x61, 0x67, 0x65, 0x20, 0x73, 0x74, 0x61, 0x72, 0x74, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x65, 0x6e, 0x64, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x7d, 0x20, 0x65, 0x64, 0x67, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x63, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x20, 0x62, 0x6f, 0x64, 0x79, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x65, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x61, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x54, 0x79, 0x70, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x41, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x61, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x41, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x54, 0x65, 0x78, 0x74, 0x20, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x44, 0x61, 0x74, 0x65, 0x20, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x41, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x65, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x73, 0x3a, 0x20, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x28, 0x77, 0x68, 0x65, 0x72, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x61, 0x6e, 0x64, 0x3a, 0x20, 0x5b, 0x20, 0x7b, 0x20, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x65, 0x71, 0x3a, 0x20, 0x22, 0x48, 0x65, 0x61, 0x64, 0x65, 0x72, 0x22, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x2c, 0x20, 0x7b, 0x20, 0x72, 0x65, 0x66, 0x65, 0x72, 0x72, 0x65, 0x64, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x3a, 0x20, 0x7b, 0x20, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x3a, 0x20, 0x7b, 0x20, 0x65, 0x71, 0x3a, 0x20, 0x22, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x22, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x5d, 0x20, 0x7d, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x72, 0x65, 0x66, 0x65, 0x72, 0x72, 0x65, 0x64, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x20, 0x75, 0x72, 0x6c, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d};
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "b3d5827ba6ebc7b577213a9abc4f6a62");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -1507,6 +1301,13 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     /// query GetArticles($first: Int, $last: Int, $sfter: String, $before: String) {
     ///   content(first: $first, last: $last, after: $sfter, before: $before, where: { contentType: { name: { eq: "Article" } } }, order: { createDatetime: DESC }) {
     ///     __typename
+    ///     pageInfo {
+    ///       __typename
+    ///       hasNextPage
+    ///       hasPreviousPage
+    ///       startCursor
+    ///       endCursor
+    ///     }
     ///     edges {
     ///       __typename
     ///       cursor
@@ -1546,28 +1347,12 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     ///             id
     ///           }
     ///         }
-    ///         contents {
+    ///         headerImages: contents(where: { and: [ { contentRelationType: { name: { eq: "Header" } } }, { referredContent: { contentType: { name: { eq: "Image" } } } } ] }) {
     ///           __typename
     ///           referredContent {
     ///             __typename
     ///             title
-    ///             body
     ///             url
-    ///             contentType {
-    ///               __typename
-    ///               name
-    ///               ... on ContentType {
-    ///                 id
-    ///               }
-    ///             }
-    ///             createDatetime
-    ///             createUser {
-    ///               __typename
-    ///               username
-    ///               ... on User {
-    ///                 id
-    ///               }
-    ///             }
     ///             ... on Content {
     ///               id
     ///             }
@@ -1580,13 +1365,6 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     ///           id
     ///         }
     ///       }
-    ///     }
-    ///     pageInfo {
-    ///       __typename
-    ///       hasNextPage
-    ///       hasPreviousPage
-    ///       startCursor
-    ///       endCursor
     ///     }
     ///   }
     /// }
@@ -1693,6 +1471,13 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     /// query GetArticles($first: Int, $last: Int, $sfter: String, $before: String) {
     ///   content(first: $first, last: $last, after: $sfter, before: $before, where: { contentType: { name: { eq: "Article" } } }, order: { createDatetime: DESC }) {
     ///     __typename
+    ///     pageInfo {
+    ///       __typename
+    ///       hasNextPage
+    ///       hasPreviousPage
+    ///       startCursor
+    ///       endCursor
+    ///     }
     ///     edges {
     ///       __typename
     ///       cursor
@@ -1732,28 +1517,12 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     ///             id
     ///           }
     ///         }
-    ///         contents {
+    ///         headerImages: contents(where: { and: [ { contentRelationType: { name: { eq: "Header" } } }, { referredContent: { contentType: { name: { eq: "Image" } } } } ] }) {
     ///           __typename
     ///           referredContent {
     ///             __typename
     ///             title
-    ///             body
     ///             url
-    ///             contentType {
-    ///               __typename
-    ///               name
-    ///               ... on ContentType {
-    ///                 id
-    ///               }
-    ///             }
-    ///             createDatetime
-    ///             createUser {
-    ///               __typename
-    ///               username
-    ///               ... on User {
-    ///                 id
-    ///               }
-    ///             }
     ///             ... on Content {
     ///               id
     ///             }
@@ -1766,13 +1535,6 @@ namespace MyCMS.Web.Sample.Data.GraphQL
     ///           id
     ///         }
     ///       }
-    ///     }
-    ///     pageInfo {
-    ///       __typename
-    ///       hasNextPage
-    ///       hasPreviousPage
-    ///       startCursor
-    ///       endCursor
     ///     }
     ///   }
     /// }
@@ -1816,16 +1578,15 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
     public partial class ContentEntity
     {
-        public ContentEntity(global::System.String? title = default !, global::System.String? body = default !, global::System.DateTimeOffset createDatetime = default !, global::StrawberryShake.EntityId? createUser = default !, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? attributes = default !, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? contents = default !, global::System.String? url = default !, global::StrawberryShake.EntityId? contentType = default !)
+        public ContentEntity(global::System.String? title = default !, global::System.String? body = default !, global::System.DateTimeOffset createDatetime = default !, global::StrawberryShake.EntityId? createUser = default !, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? attributes = default !, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? headerImages = default !, global::System.String? url = default !)
         {
             Title = title;
             Body = body;
             CreateDatetime = createDatetime;
             CreateUser = createUser;
             Attributes = attributes;
-            Contents = contents;
+            HeaderImages = headerImages;
             Url = url;
-            ContentType = contentType;
         }
 
         public global::System.String? Title { get; }
@@ -1838,11 +1599,9 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
 
         public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Attributes { get; }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Contents { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? HeaderImages { get; }
 
         public global::System.String? Url { get; }
-
-        public global::StrawberryShake.EntityId? ContentType { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
@@ -1916,17 +1675,6 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class ContentTypeEntity
-    {
-        public ContentTypeEntity(global::System.String? name = default !)
-        {
-            Name = name;
-        }
-
-        public global::System.String? Name { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
     public partial class GetArticlesResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::MyCMS.Web.Sample.Data.GraphQL.GetArticlesResult>
     {
         private readonly global::StrawberryShake.IEntityStore _entityStore;
@@ -1935,11 +1683,9 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
         private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentAttributeEntity, GetArticles_Content_Edges_Node_Attributes_ContentAttribute> _getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper;
         private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeEntity, GetArticles_Content_Edges_Node_Attributes_Attribute_Attribute> _getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper;
         private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeOptionEntity, GetArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOption> _getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_Contents_ContentRelation> _getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_Content> _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType> _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User> _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper;
-        public GetArticlesResultFactory(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_Content> getArticles_Content_Edges_Node_ContentFromContentEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_CreateUser_User> getArticles_Content_Edges_Node_CreateUser_UserFromUserEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentAttributeEntity, GetArticles_Content_Edges_Node_Attributes_ContentAttribute> getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeEntity, GetArticles_Content_Edges_Node_Attributes_Attribute_Attribute> getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeOptionEntity, GetArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOption> getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_Contents_ContentRelation> getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_Content> getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType> getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User> getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper)
+        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_HeaderImages_ContentRelation> _getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper;
+        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content> _getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper;
+        public GetArticlesResultFactory(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_Content> getArticles_Content_Edges_Node_ContentFromContentEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_CreateUser_User> getArticles_Content_Edges_Node_CreateUser_UserFromUserEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentAttributeEntity, GetArticles_Content_Edges_Node_Attributes_ContentAttribute> getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeEntity, GetArticles_Content_Edges_Node_Attributes_Attribute_Attribute> getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeOptionEntity, GetArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOption> getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_HeaderImages_ContentRelation> getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content> getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
             _getArticles_Content_Edges_Node_ContentFromContentEntityMapper = getArticles_Content_Edges_Node_ContentFromContentEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_ContentFromContentEntityMapper));
@@ -1947,10 +1693,8 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             _getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper = getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper));
             _getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper = getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper));
             _getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper = getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper = getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper));
+            _getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper = getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper));
+            _getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper = getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper));
         }
 
         global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::MyCMS.Web.Sample.Data.GraphQL.IGetArticlesResult);
@@ -1979,7 +1723,22 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             IGetArticles_Content returnValue = default !;
             if (data?.__typename.Equals("ContentConnection", global::System.StringComparison.Ordinal) ?? false)
             {
-                returnValue = new GetArticles_Content_ContentConnection(MapIGetArticles_Content_EdgesNonNullableArray(data.Edges, snapshot), MapNonNullableIGetArticles_Content_PageInfo(data.PageInfo ?? throw new global::System.ArgumentNullException(), snapshot));
+                returnValue = new GetArticles_Content_ContentConnection(MapNonNullableIGetArticles_Content_PageInfo(data.PageInfo ?? throw new global::System.ArgumentNullException(), snapshot), MapIGetArticles_Content_EdgesNonNullableArray(data.Edges, snapshot));
+            }
+            else
+            {
+                throw new global::System.NotSupportedException();
+            }
+
+            return returnValue;
+        }
+
+        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_PageInfo MapNonNullableIGetArticles_Content_PageInfo(global::MyCMS.Web.Sample.Data.GraphQL.State.PageInfoData data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            IGetArticles_Content_PageInfo returnValue = default !;
+            if (data.__typename.Equals("PageInfo", global::System.StringComparison.Ordinal))
+            {
+                returnValue = new GetArticles_Content_PageInfo_PageInfo(data.HasNextPage ?? throw new global::System.ArgumentNullException(), data.HasPreviousPage ?? throw new global::System.ArgumentNullException(), data.StartCursor, data.EndCursor);
             }
             else
             {
@@ -2111,23 +1870,23 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             throw new global::System.NotSupportedException();
         }
 
-        private global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents?>? MapIGetArticles_Content_Edges_Node_ContentsArray(global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? list, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages?>? MapIGetArticles_Content_Edges_Node_HeaderImagesArray(global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? list, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (list is null)
             {
                 return null;
             }
 
-            var contentRelations = new global::System.Collections.Generic.List<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents?>();
+            var contentRelations = new global::System.Collections.Generic.List<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages?>();
             foreach (global::StrawberryShake.EntityId? child in list)
             {
-                contentRelations.Add(MapIGetArticles_Content_Edges_Node_Contents(child, snapshot));
+                contentRelations.Add(MapIGetArticles_Content_Edges_Node_HeaderImages(child, snapshot));
             }
 
             return contentRelations;
         }
 
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents? MapIGetArticles_Content_Edges_Node_Contents(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages? MapIGetArticles_Content_Edges_Node_HeaderImages(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (entityId is null)
             {
@@ -2136,13 +1895,13 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
 
             if (entityId.Value.Name.Equals("ContentRelation", global::System.StringComparison.Ordinal))
             {
-                return _getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
+                return _getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
             }
 
             throw new global::System.NotSupportedException();
         }
 
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent? MapIGetArticles_Content_Edges_Node_HeaderImages_ReferredContent(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (entityId is null)
             {
@@ -2151,55 +1910,10 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
 
             if (entityId.Value.Name.Equals("Content", global::System.StringComparison.Ordinal))
             {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
+                return _getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
             }
 
             throw new global::System.NotSupportedException();
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("ContentType", global::System.StringComparison.Ordinal))
-            {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("User", global::System.StringComparison.Ordinal))
-            {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_PageInfo MapNonNullableIGetArticles_Content_PageInfo(global::MyCMS.Web.Sample.Data.GraphQL.State.PageInfoData data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            IGetArticles_Content_PageInfo returnValue = default !;
-            if (data.__typename.Equals("PageInfo", global::System.StringComparison.Ordinal))
-            {
-                returnValue = new GetArticles_Content_PageInfo_PageInfo(data.HasNextPage ?? throw new global::System.ArgumentNullException(), data.HasPreviousPage ?? throw new global::System.ArgumentNullException(), data.StartCursor, data.EndCursor);
-            }
-            else
-            {
-                throw new global::System.NotSupportedException();
-            }
-
-            return returnValue;
         }
 
         global::System.Object global::StrawberryShake.IOperationResultDataFactory.Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot)
@@ -2241,21 +1955,17 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
         private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentAttributeEntity, GetArticles_Content_Edges_Node_Attributes_ContentAttribute> _getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper;
         private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeEntity, GetArticles_Content_Edges_Node_Attributes_Attribute_Attribute> _getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper;
         private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeOptionEntity, GetArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOption> _getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_Contents_ContentRelation> _getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_Content> _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType> _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User> _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper;
-        public GetArticles_Content_Edges_Node_ContentFromContentEntityMapper(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_CreateUser_User> getArticles_Content_Edges_Node_CreateUser_UserFromUserEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentAttributeEntity, GetArticles_Content_Edges_Node_Attributes_ContentAttribute> getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeEntity, GetArticles_Content_Edges_Node_Attributes_Attribute_Attribute> getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeOptionEntity, GetArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOption> getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_Contents_ContentRelation> getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_Content> getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType> getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User> getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper)
+        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_HeaderImages_ContentRelation> _getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper;
+        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content> _getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper;
+        public GetArticles_Content_Edges_Node_ContentFromContentEntityMapper(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_CreateUser_User> getArticles_Content_Edges_Node_CreateUser_UserFromUserEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentAttributeEntity, GetArticles_Content_Edges_Node_Attributes_ContentAttribute> getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeEntity, GetArticles_Content_Edges_Node_Attributes_Attribute_Attribute> getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.AttributeOptionEntity, GetArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOption> getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_HeaderImages_ContentRelation> getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content> getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
             _getArticles_Content_Edges_Node_CreateUser_UserFromUserEntityMapper = getArticles_Content_Edges_Node_CreateUser_UserFromUserEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_CreateUser_UserFromUserEntityMapper));
             _getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper = getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Attributes_ContentAttributeFromContentAttributeEntityMapper));
             _getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper = getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Attributes_Attribute_AttributeFromAttributeEntityMapper));
             _getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper = getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Attributes_AttributeOption_AttributeOptionFromAttributeOptionEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper = getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper));
+            _getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper = getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper));
+            _getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper = getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper));
         }
 
         public GetArticles_Content_Edges_Node_Content Map(global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
@@ -2265,7 +1975,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
                 snapshot = _entityStore.CurrentSnapshot;
             }
 
-            return new GetArticles_Content_Edges_Node_Content(entity.Title, entity.Body, entity.CreateDatetime, MapIGetArticles_Content_Edges_Node_CreateUser(entity.CreateUser, snapshot), MapIGetArticles_Content_Edges_Node_AttributesArray(entity.Attributes, snapshot), MapIGetArticles_Content_Edges_Node_ContentsArray(entity.Contents, snapshot));
+            return new GetArticles_Content_Edges_Node_Content(entity.Title, entity.Body, entity.CreateDatetime, MapIGetArticles_Content_Edges_Node_CreateUser(entity.CreateUser, snapshot), MapIGetArticles_Content_Edges_Node_AttributesArray(entity.Attributes, snapshot), MapIGetArticles_Content_Edges_Node_HeaderImagesArray(entity.HeaderImages, snapshot));
         }
 
         private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_CreateUser? MapIGetArticles_Content_Edges_Node_CreateUser(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
@@ -2344,23 +2054,23 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             throw new global::System.NotSupportedException();
         }
 
-        private global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents?>? MapIGetArticles_Content_Edges_Node_ContentsArray(global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? list, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages?>? MapIGetArticles_Content_Edges_Node_HeaderImagesArray(global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? list, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (list is null)
             {
                 return null;
             }
 
-            var contentRelations = new global::System.Collections.Generic.List<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents?>();
+            var contentRelations = new global::System.Collections.Generic.List<global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages?>();
             foreach (global::StrawberryShake.EntityId? child in list)
             {
-                contentRelations.Add(MapIGetArticles_Content_Edges_Node_Contents(child, snapshot));
+                contentRelations.Add(MapIGetArticles_Content_Edges_Node_HeaderImages(child, snapshot));
             }
 
             return contentRelations;
         }
 
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents? MapIGetArticles_Content_Edges_Node_Contents(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages? MapIGetArticles_Content_Edges_Node_HeaderImages(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (entityId is null)
             {
@@ -2369,13 +2079,13 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
 
             if (entityId.Value.Name.Equals("ContentRelation", global::System.StringComparison.Ordinal))
             {
-                return _getArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
+                return _getArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
             }
 
             throw new global::System.NotSupportedException();
         }
 
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent? MapIGetArticles_Content_Edges_Node_HeaderImages_ReferredContent(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (entityId is null)
             {
@@ -2384,37 +2094,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
 
             if (entityId.Value.Name.Equals("Content", global::System.StringComparison.Ordinal))
             {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("ContentType", global::System.StringComparison.Ordinal))
-            {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("User", global::System.StringComparison.Ordinal))
-            {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
+                return _getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
             }
 
             throw new global::System.NotSupportedException();
@@ -2496,31 +2176,27 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class GetArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper : global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_Contents_ContentRelation>
+    public partial class GetArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper : global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity, GetArticles_Content_Edges_Node_HeaderImages_ContentRelation>
     {
         private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_Content> _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType> _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User> _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper;
-        public GetArticles_Content_Edges_Node_Contents_ContentRelationFromContentRelationEntityMapper(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_Content> getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType> getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User> getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper)
+        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content> _getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper;
+        public GetArticles_Content_Edges_Node_HeaderImages_ContentRelationFromContentRelationEntityMapper(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content> getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper));
+            _getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper = getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper));
         }
 
-        public GetArticles_Content_Edges_Node_Contents_ContentRelation Map(global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        public GetArticles_Content_Edges_Node_HeaderImages_ContentRelation Map(global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
         {
             if (snapshot is null)
             {
                 snapshot = _entityStore.CurrentSnapshot;
             }
 
-            return new GetArticles_Content_Edges_Node_Contents_ContentRelation(MapIGetArticles_Content_Edges_Node_Contents_ReferredContent(entity.ReferredContent, snapshot));
+            return new GetArticles_Content_Edges_Node_HeaderImages_ContentRelation(MapIGetArticles_Content_Edges_Node_HeaderImages_ReferredContent(entity.ReferredContent, snapshot));
         }
 
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_HeaderImages_ReferredContent? MapIGetArticles_Content_Edges_Node_HeaderImages_ReferredContent(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (entityId is null)
             {
@@ -2529,37 +2205,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
 
             if (entityId.Value.Name.Equals("Content", global::System.StringComparison.Ordinal))
             {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("ContentType", global::System.StringComparison.Ordinal))
-            {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("User", global::System.StringComparison.Ordinal))
-            {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
+                return _getArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
             }
 
             throw new global::System.NotSupportedException();
@@ -2607,96 +2253,22 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper : global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_Content>
+    public partial class GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper : global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity, GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content>
     {
         private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType> _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User> _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper;
-        public GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentFromContentEntityMapper(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType> getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper, global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User> getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper)
+        public GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_ContentFromContentEntityMapper(global::StrawberryShake.IEntityStore entityStore)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper));
-            _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper = getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper));
         }
 
-        public GetArticles_Content_Edges_Node_Contents_ReferredContent_Content Map(global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        public GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content Map(global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
         {
             if (snapshot is null)
             {
                 snapshot = _entityStore.CurrentSnapshot;
             }
 
-            return new GetArticles_Content_Edges_Node_Contents_ReferredContent_Content(entity.Title, entity.Body, entity.Url, MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType(entity.ContentType, snapshot), entity.CreateDatetime, MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser(entity.CreateUser, snapshot));
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("ContentType", global::System.StringComparison.Ordinal))
-            {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.IGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser? MapIGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("User", global::System.StringComparison.Ordinal))
-            {
-                return _getArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper.Map(snapshot.GetEntity<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper : global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType>
-    {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        public GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentTypeFromContentTypeEntityMapper(global::StrawberryShake.IEntityStore entityStore)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-        }
-
-        public GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType Map(global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
-        {
-            if (snapshot is null)
-            {
-                snapshot = _entityStore.CurrentSnapshot;
-            }
-
-            return new GetArticles_Content_Edges_Node_Contents_ReferredContent_ContentType_ContentType(entity.Name);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper : global::StrawberryShake.IEntityMapper<global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity, GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User>
-    {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        public GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_UserFromUserEntityMapper(global::StrawberryShake.IEntityStore entityStore)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-        }
-
-        public GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User Map(global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
-        {
-            if (snapshot is null)
-            {
-                snapshot = _entityStore.CurrentSnapshot;
-            }
-
-            return new GetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUser_User(entity.Username);
+            return new GetArticles_Content_Edges_Node_HeaderImages_ReferredContent_Content(entity.Title, entity.Url);
         }
     }
 
@@ -2788,10 +2360,46 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             var typename = obj.Value.GetProperty("__typename").GetString();
             if (typename?.Equals("ContentConnection", global::System.StringComparison.Ordinal) ?? false)
             {
-                return new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentConnectionData(typename, edges: DeserializeIGetArticles_Content_EdgesNonNullableArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "edges"), entityIds), pageInfo: DeserializeNonNullableIGetArticles_Content_PageInfo(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "pageInfo")));
+                return new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentConnectionData(typename, pageInfo: DeserializeNonNullableIGetArticles_Content_PageInfo(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "pageInfo")), edges: DeserializeIGetArticles_Content_EdgesNonNullableArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "edges"), entityIds));
             }
 
             throw new global::System.NotSupportedException();
+        }
+
+        private global::MyCMS.Web.Sample.Data.GraphQL.State.PageInfoData DeserializeNonNullableIGetArticles_Content_PageInfo(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            var typename = obj.Value.GetProperty("__typename").GetString();
+            if (typename?.Equals("PageInfo", global::System.StringComparison.Ordinal) ?? false)
+            {
+                return new global::MyCMS.Web.Sample.Data.GraphQL.State.PageInfoData(typename, hasNextPage: DeserializeNonNullableBoolean(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "hasNextPage")), hasPreviousPage: DeserializeNonNullableBoolean(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "hasPreviousPage")), startCursor: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "startCursor")), endCursor: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "endCursor")));
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.Boolean DeserializeNonNullableBoolean(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            return _booleanParser.Parse(obj.Value.GetBoolean()!);
+        }
+
+        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
         }
 
         private global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEdgeData>? DeserializeIGetArticles_Content_EdgesNonNullableArray(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
@@ -2849,27 +2457,17 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             {
                 if (session.CurrentSnapshot.TryGetEntity(entityId, out global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity? entity))
                 {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "body")), DeserializeNonNullableDateTimeOffset(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createDatetime")), UpdateIGetArticles_Content_Edges_Node_CreateUserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createUser"), entityIds), UpdateIGetArticles_Content_Edges_Node_AttributesEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "attributes"), entityIds), UpdateIGetArticles_Content_Edges_Node_ContentsEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "contents"), entityIds), entity.Url, entity.ContentType));
+                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "body")), DeserializeNonNullableDateTimeOffset(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createDatetime")), UpdateIGetArticles_Content_Edges_Node_CreateUserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createUser"), entityIds), UpdateIGetArticles_Content_Edges_Node_AttributesEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "attributes"), entityIds), UpdateIGetArticles_Content_Edges_Node_HeaderImagesEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "headerImages"), entityIds), entity.Url));
                 }
                 else
                 {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "body")), DeserializeNonNullableDateTimeOffset(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createDatetime")), UpdateIGetArticles_Content_Edges_Node_CreateUserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createUser"), entityIds), UpdateIGetArticles_Content_Edges_Node_AttributesEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "attributes"), entityIds), UpdateIGetArticles_Content_Edges_Node_ContentsEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "contents"), entityIds), default !, default !));
+                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "body")), DeserializeNonNullableDateTimeOffset(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createDatetime")), UpdateIGetArticles_Content_Edges_Node_CreateUserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createUser"), entityIds), UpdateIGetArticles_Content_Edges_Node_AttributesEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "attributes"), entityIds), UpdateIGetArticles_Content_Edges_Node_HeaderImagesEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "headerImages"), entityIds), default !));
                 }
 
                 return entityId;
             }
 
             throw new global::System.NotSupportedException();
-        }
-
-        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            return _stringParser.Parse(obj.Value.GetString()!);
         }
 
         private global::System.DateTimeOffset DeserializeNonNullableDateTimeOffset(global::System.Text.Json.JsonElement? obj)
@@ -3032,7 +2630,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             return _intParser.Parse(obj.Value.GetInt32()!);
         }
 
-        private global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UpdateIGetArticles_Content_Edges_Node_ContentsEntityArray(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        private global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UpdateIGetArticles_Content_Edges_Node_HeaderImagesEntityArray(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
         {
             if (!obj.HasValue)
             {
@@ -3042,13 +2640,13 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             var contentRelations = new global::System.Collections.Generic.List<global::StrawberryShake.EntityId?>();
             foreach (global::System.Text.Json.JsonElement child in obj.Value.EnumerateArray())
             {
-                contentRelations.Add(UpdateIGetArticles_Content_Edges_Node_ContentsEntity(session, child, entityIds));
+                contentRelations.Add(UpdateIGetArticles_Content_Edges_Node_HeaderImagesEntity(session, child, entityIds));
             }
 
             return contentRelations;
         }
 
-        private global::StrawberryShake.EntityId? UpdateIGetArticles_Content_Edges_Node_ContentsEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        private global::StrawberryShake.EntityId? UpdateIGetArticles_Content_Edges_Node_HeaderImagesEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
         {
             if (!obj.HasValue)
             {
@@ -3061,11 +2659,11 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             {
                 if (session.CurrentSnapshot.TryGetEntity(entityId, out global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity? entity))
                 {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity(UpdateIGetArticles_Content_Edges_Node_Contents_ReferredContentEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "referredContent"), entityIds)));
+                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity(UpdateIGetArticles_Content_Edges_Node_HeaderImages_ReferredContentEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "referredContent"), entityIds)));
                 }
                 else
                 {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity(UpdateIGetArticles_Content_Edges_Node_Contents_ReferredContentEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "referredContent"), entityIds)));
+                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentRelationEntity(UpdateIGetArticles_Content_Edges_Node_HeaderImages_ReferredContentEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "referredContent"), entityIds)));
                 }
 
                 return entityId;
@@ -3074,7 +2672,7 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             throw new global::System.NotSupportedException();
         }
 
-        private global::StrawberryShake.EntityId? UpdateIGetArticles_Content_Edges_Node_Contents_ReferredContentEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        private global::StrawberryShake.EntityId? UpdateIGetArticles_Content_Edges_Node_HeaderImages_ReferredContentEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
         {
             if (!obj.HasValue)
             {
@@ -3087,95 +2685,17 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
             {
                 if (session.CurrentSnapshot.TryGetEntity(entityId, out global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity? entity))
                 {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "body")), DeserializeNonNullableDateTimeOffset(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createDatetime")), UpdateIGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createUser"), entityIds), entity.Attributes, entity.Contents, DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "url")), UpdateIGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentTypeEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "contentType"), entityIds)));
+                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), entity.Body, entity.CreateDatetime, entity.CreateUser, entity.Attributes, entity.HeaderImages, DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "url"))));
                 }
                 else
                 {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "body")), DeserializeNonNullableDateTimeOffset(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createDatetime")), UpdateIGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createUser"), entityIds), default !, default !, DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "url")), UpdateIGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentTypeEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "contentType"), entityIds)));
+                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), default !, default !, default !, default !, default !, DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "url"))));
                 }
 
                 return entityId;
             }
 
             throw new global::System.NotSupportedException();
-        }
-
-        private global::StrawberryShake.EntityId? UpdateIGetArticles_Content_Edges_Node_Contents_ReferredContent_ContentTypeEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
-            entityIds.Add(entityId);
-            if (entityId.Name.Equals("ContentType", global::System.StringComparison.Ordinal))
-            {
-                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity? entity))
-                {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "name"))));
-                }
-                else
-                {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.ContentTypeEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "name"))));
-                }
-
-                return entityId;
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::StrawberryShake.EntityId? UpdateIGetArticles_Content_Edges_Node_Contents_ReferredContent_CreateUserEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
-            entityIds.Add(entityId);
-            if (entityId.Name.Equals("User", global::System.StringComparison.Ordinal))
-            {
-                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity? entity))
-                {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "username"))));
-                }
-                else
-                {
-                    session.SetEntity(entityId, new global::MyCMS.Web.Sample.Data.GraphQL.State.UserEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "username"))));
-                }
-
-                return entityId;
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::MyCMS.Web.Sample.Data.GraphQL.State.PageInfoData DeserializeNonNullableIGetArticles_Content_PageInfo(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                throw new global::System.ArgumentNullException();
-            }
-
-            var typename = obj.Value.GetProperty("__typename").GetString();
-            if (typename?.Equals("PageInfo", global::System.StringComparison.Ordinal) ?? false)
-            {
-                return new global::MyCMS.Web.Sample.Data.GraphQL.State.PageInfoData(typename, hasNextPage: DeserializeNonNullableBoolean(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "hasNextPage")), hasPreviousPage: DeserializeNonNullableBoolean(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "hasPreviousPage")), startCursor: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "startCursor")), endCursor: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "endCursor")));
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.Boolean DeserializeNonNullableBoolean(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                throw new global::System.ArgumentNullException();
-            }
-
-            return _booleanParser.Parse(obj.Value.GetBoolean()!);
         }
     }
 
@@ -3183,40 +2703,20 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
     public partial class ContentConnectionData
     {
-        public ContentConnectionData(global::System.String __typename, global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEdgeData>? edges = default !, global::MyCMS.Web.Sample.Data.GraphQL.State.PageInfoData? pageInfo = default !)
+        public ContentConnectionData(global::System.String __typename, global::MyCMS.Web.Sample.Data.GraphQL.State.PageInfoData? pageInfo = default !, global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEdgeData>? edges = default !)
         {
             this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
-            Edges = edges;
             PageInfo = pageInfo;
+            Edges = edges;
         }
 
         public global::System.String __typename { get; }
-
-        ///<summary>A list of edges.</summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEdgeData>? Edges { get; }
 
         ///<summary>Information to aid in pagination.</summary>
         public global::MyCMS.Web.Sample.Data.GraphQL.State.PageInfoData? PageInfo { get; }
-    }
 
-    ///<summary>An edge in a connection.</summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
-    public partial class ContentEdgeData
-    {
-        public ContentEdgeData(global::System.String __typename, global::System.String? cursor = default !, global::StrawberryShake.EntityId? node = default !)
-        {
-            this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
-            Cursor = cursor;
-            Node = node;
-        }
-
-        public global::System.String __typename { get; }
-
-        ///<summary>A cursor for use in pagination.</summary>
-        public global::System.String? Cursor { get; }
-
-        ///<summary>The item at the end of the edge.</summary>
-        public global::StrawberryShake.EntityId? Node { get; }
+        ///<summary>A list of edges.</summary>
+        public global::System.Collections.Generic.IReadOnlyList<global::MyCMS.Web.Sample.Data.GraphQL.State.ContentEdgeData>? Edges { get; }
     }
 
     ///<summary>Information about pagination in a connection.</summary>
@@ -3247,6 +2747,26 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
         public global::System.String? EndCursor { get; }
     }
 
+    ///<summary>An edge in a connection.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
+    public partial class ContentEdgeData
+    {
+        public ContentEdgeData(global::System.String __typename, global::System.String? cursor = default !, global::StrawberryShake.EntityId? node = default !)
+        {
+            this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
+            Cursor = cursor;
+            Node = node;
+        }
+
+        public global::System.String __typename { get; }
+
+        ///<summary>A cursor for use in pagination.</summary>
+        public global::System.String? Cursor { get; }
+
+        ///<summary>The item at the end of the edge.</summary>
+        public global::StrawberryShake.EntityId? Node { get; }
+    }
+
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "12.7.0.0")]
     public partial class MyCMSClientEntityIdFactory : global::StrawberryShake.IEntityIdSerializer
     {
@@ -3263,7 +2783,6 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
                 "ContentRelation" => ParseContentRelationEntityId(obj, __typename),
                 "Attribute" => ParseAttributeEntityId(obj, __typename),
                 "AttributeOption" => ParseAttributeOptionEntityId(obj, __typename),
-                "ContentType" => ParseContentTypeEntityId(obj, __typename),
                 _ => throw new global::System.NotSupportedException()};
         }
 
@@ -3277,7 +2796,6 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
                 "ContentRelation" => FormatContentRelationEntityId(entityId),
                 "Attribute" => FormatAttributeEntityId(entityId),
                 "AttributeOption" => FormatAttributeOptionEntityId(entityId),
-                "ContentType" => FormatContentTypeEntityId(entityId),
                 _ => throw new global::System.NotSupportedException()};
         }
 
@@ -3372,23 +2890,6 @@ namespace MyCMS.Web.Sample.Data.GraphQL.State
         }
 
         private global::System.String FormatAttributeOptionEntityId(global::StrawberryShake.EntityId entityId)
-        {
-            using var writer = new global::StrawberryShake.Internal.ArrayWriter();
-            using var jsonWriter = new global::System.Text.Json.Utf8JsonWriter(writer, _options);
-            jsonWriter.WriteStartObject();
-            jsonWriter.WriteString("__typename", entityId.Name);
-            jsonWriter.WriteNumber("id", (global::System.Int32)entityId.Value);
-            jsonWriter.WriteEndObject();
-            jsonWriter.Flush();
-            return global::System.Text.Encoding.UTF8.GetString(writer.GetInternalBuffer(), 0, writer.Length);
-        }
-
-        private global::StrawberryShake.EntityId ParseContentTypeEntityId(global::System.Text.Json.JsonElement obj, global::System.String type)
-        {
-            return new global::StrawberryShake.EntityId(type, obj.GetProperty("id").GetInt32()!);
-        }
-
-        private global::System.String FormatContentTypeEntityId(global::StrawberryShake.EntityId entityId)
         {
             using var writer = new global::StrawberryShake.Internal.ArrayWriter();
             using var jsonWriter = new global::System.Text.Json.Utf8JsonWriter(writer, _options);

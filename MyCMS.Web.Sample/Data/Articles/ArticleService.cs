@@ -72,23 +72,11 @@ public class ArticleService
                 Name = a.Attribute.Name,
                 Value = FormatArticleValue(a) 
             }),
-            Images = x.Node.Contents
-                .Where(c => c.ReferredContent.ContentType.Name == "Image")
-                .OrderByDescending(c => c.ReferredContent.CreateUser)
+            HeaderImages = x.Node.HeaderImages
                 .Select(i => new ArticlesViewModel.Image
             {
                 Title = i.ReferredContent.Title,
                 Url = i.ReferredContent.Url
-            }).ToArray(),
-            Comments = x.Node.Contents
-                .Where(c => c.ReferredContent.ContentType.Name == "Comment")
-                .OrderByDescending(c => c.ReferredContent.CreateUser)
-                .Select(c => new ArticlesViewModel.Comment
-            {
-                Title = c.ReferredContent.Title,
-                Body = c.ReferredContent.Body,
-                CreateUser = c.ReferredContent.CreateUser.Username,
-                CreateDatetime = FormatDateTime(c.ReferredContent.CreateDatetime)
             }).ToArray(),
         }).ToArray();
 

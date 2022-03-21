@@ -20,9 +20,7 @@
 
             public IEnumerable<Attribute> Attributes { get; set; }
 
-            public IEnumerable<Image> Images { get; set; }
-
-            public IEnumerable<Comment> Comments { get; set; }
+            public IEnumerable<Image> HeaderImages { get; set; }
         }
 
         public class Attribute
@@ -35,15 +33,5 @@
         {
             public string Title { get; set; }
             public string Url { get; set; }
-        }
-
-        public class Comment
-        {
-            public string Title { get; set; }
-            public string Body { get; set; }
-
-            public string CreateUser { get; set; }
-
-            public string CreateDatetime { get; set; }
         }
     }
