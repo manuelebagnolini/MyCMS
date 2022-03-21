@@ -1,7 +1,7 @@
 ﻿using MyCMS.Core.Entities;
 using MyCMS.Core.Interfaces;
 
-namespace MyCMS.Web.API.Queries
+namespace MyCMS.Web.API.GraphQL.Queries
 {
     /// <summary>
     /// Query type registered in GraphQL

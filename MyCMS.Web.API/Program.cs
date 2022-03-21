@@ -3,7 +3,8 @@ using MyCMS.Data;
 using MyCMS.Data.DataProviders;
 using MyCMS.Data.Intefaces;
 using MyCMS.Data.TestData;
-using MyCMS.Web.API.Queries;
+using MyCMS.Web.API.GraphQL.Queries;
+using MyCMS.Web.API.GraphQL.Types;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +27,7 @@ builder.Services.AddDbContext<MyCMSContext>();
 
 builder.Services.AddGraphQLServer()
     .AddQueryType<ContentQuery>()
+    .AddType<ContentObjectType>()
     .AddProjections()
     .AddFiltering()
     .AddSorting();
