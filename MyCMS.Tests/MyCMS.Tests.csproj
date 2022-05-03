@@ -20,4 +20,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\mycms.core\MyCMS.Core.csproj" />
+    <ProjectReference Include="..\MyCMS.Data\MyCMS.Data.csproj" />
+    <ProjectReference Include="..\MyCMS.Web.API\MyCMS.Web.API.csproj" />
+  </ItemGroup>
+
 </Project>
