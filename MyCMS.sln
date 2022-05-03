@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCMS.Web.API", "MyCMS.Web.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCMS.Web.Sample", "MyCMS.Web.Sample\MyCMS.Web.Sample.csproj", "{D61BCA36-5D9E-437A-B5D3-A6DC5DB141D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCMS.Tests", "MyCMS.Tests\MyCMS.Tests.csproj", "{FC8BB57D-8089-4D63-952C-24AFB1A3BE6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D61BCA36-5D9E-437A-B5D3-A6DC5DB141D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D61BCA36-5D9E-437A-B5D3-A6DC5DB141D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D61BCA36-5D9E-437A-B5D3-A6DC5DB141D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC8BB57D-8089-4D63-952C-24AFB1A3BE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8BB57D-8089-4D63-952C-24AFB1A3BE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8BB57D-8089-4D63-952C-24AFB1A3BE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8BB57D-8089-4D63-952C-24AFB1A3BE6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
