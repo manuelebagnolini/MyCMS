@@ -1,0 +1,22 @@
+@startuml headless-cms-api-component
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Headless CMS API Component
+
+System_Ext(frontend, "Front-end", "Application that shows the contents based on a custom UX")
+
+Container_Boundary(cms_api, "API service") {
+    Component(endpoint, "Endpoint", "GraphQL")
+    Rel(endpoint, frontend, "rel", "tech")
+
+    Component(service, "Service", ".NET 6.0")
+    Rel(endpoint, service, "rel", "tech")
+    
+    Component(repository, "Repository", "EF Core")
+    Rel(service, repository, "rel", "tech")
+    
+    ComponentDb(cms_db, "Database")
+    Rel(repository, cms_db, "rel", "tech")
+}
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml headless-cms-container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define DEVICONS2 https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2
+
+!include DEVICONS/dotnet.puml
+!include DEVICONS/sqllite.puml
+!include DEVICONS2/graphql.puml
+
+title Headless CMS Container
+
+Person(editor, "Editor", "Editor of the content stored in the CMS")
+
+System_Boundary(cms_app, "MyCMS"){
+  Container(cms_ui, "UI app", "Blazor WebAssembly", "Graphical interface application that allows editors to manage the contents", $sprite="dotnet")
+  Container(cms_api, "API service", "GraphQL", "Service application that exposes the APIs that allow external systems to interact with the content", $sprite="graphql")
+  ContainerDb(cms_db, "Database", "SQLite", $sprite="sqllite")
+  Rel(cms_ui, cms_db, "query", "Entity Framework")
+  Rel(cms_api, cms_db, "query", "Entity Framework")
+}
+
+Rel(editor, cms_ui, "uses", "https")
+
+System_Ext(frontend, "Front-end", "Application that shows the contents based on a custom UX")
+Person_Ext(user, "User", "A user interested in learning more about the content")
+Rel(user, frontend, "uses", "https")
+
+Rel(frontend, cms_api, "query", "https")
+Rel(frontend, cms_api, "mutation", "https")
+
+@enduml

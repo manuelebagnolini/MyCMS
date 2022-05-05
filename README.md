@@ -51,5 +51,8 @@ Inside the solution you will find a sample frontend project written in Blazor We
 - Now select one from `Start new instance` and `Start without debugging`
 - The browser will automatically open on `https://localhost:7058/` URL
 
+## Documentation
+The documentation can be accessed [here](./docs/README.md)
+
 ## License
 See the [LICENSE](./LICENSE) file for licensing information.

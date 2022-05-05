@@ -1,0 +1,20 @@
+@startuml retrieve-content-diagram
+title "Retrieve content"
+actor Frontend
+Frontend -> GraphQLEndpoint: Query content
+GraphQLEndpoint -> Service: GetRepository
+Service -> GraphQLEndpoint: Repository instance
+GraphQLEndpoint -> Repository: Query enitites
+Repository -> DB: Execute query
+alt success
+    DB -> Repository: data
+    Repository -> Service: data
+    Service -> GraphQLEndpoint: data
+    GraphQLEndpoint -> Frontend: data
+else failure
+    DB -> Repository: error
+    Repository -> Service: error
+    Service -> GraphQLEndpoint: error
+    GraphQLEndpoint -> Frontend: error
+end
+@enduml

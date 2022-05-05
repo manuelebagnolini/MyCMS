@@ -1,0 +1,16 @@
+@startuml headless-cms-context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title Headless CMS Context
+
+Person(editor, "Editor", "Editor of the content stored in the CMS")
+System(cms, "Headless CMS", "Application that allows editor to manage the contents and serve them to connected systems")
+Rel(editor, cms, "uses", "https")
+
+System_Ext(frontend, "Front-end", "Application that shows the contents based on a custom UX")
+Person_Ext(user, "User", "A user interested in learning more about the content")
+Rel(user, frontend, "uses", "https")
+
+Rel(frontend, cms, "communication middleware", "https")
+
+@enduml
