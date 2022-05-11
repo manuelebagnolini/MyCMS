@@ -1,24 +1,25 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /src
+
+# Copy csproj and restore as distinct layers
 COPY ["MyCMS.Core/MyCMS.Core.csproj", "mycms.core/"]
 COPY ["MyCMS.Data/MyCMS.Data.csproj", "mycms.data/"]
 COPY ["MyCMS.Web.API/MyCMS.Web.API.csproj", "mycms.web.api/"]
 RUN dotnet restore "mycms.web.api/MyCMS.Web.API.csproj"
+
+# Copy everything else and build
 COPY . .
 WORKDIR "/src/MyCMS.Web.API"
 RUN dotnet build "MyCMS.Web.API.csproj" -c Release -o /app/build
 
-FROM build AS publish
+# Publish release
+FROM build-env AS publish-env
 RUN dotnet publish "MyCMS.Web.API.csproj" -c Release -o /app/publish
 
-FROM base AS final
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
-COPY --from=publish /app/publish .
+EXPOSE 80
+EXPOSE 443
+COPY --from=publish-env /app/publish .
 ENTRYPOINT ["dotnet", "MyCMS.Web.API.dll"]
