@@ -1,7 +1,7 @@
 using MyCMS.Core.Interfaces;
 using MyCMS.Data;
 using MyCMS.Data.DataProviders;
-using MyCMS.Data.Intefaces;
+using MyCMS.Data.Interfaces;
 using MyCMS.Data.TestData;
 using MyCMS.Web.API.GraphQL.Queries;
 using MyCMS.Web.API.GraphQL.Types;

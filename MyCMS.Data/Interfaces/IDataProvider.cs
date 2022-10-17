@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace MyCMS.Data.Intefaces
+namespace MyCMS.Data.Interfaces
 {
     public interface IDataProvider
     {

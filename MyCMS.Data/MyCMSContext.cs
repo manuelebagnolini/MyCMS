@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using MyCMS.Core.Entities;
 using MyCMS.Data.Configurations;
-using MyCMS.Data.Intefaces;
+using MyCMS.Data.Interfaces;
 
 namespace MyCMS.Data
 {

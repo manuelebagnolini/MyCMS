@@ -1,4 +1,4 @@
-﻿namespace MyCMS.Data.Intefaces
+﻿namespace MyCMS.Data.Interfaces
 {
     public interface IDataProviderManager
     {
